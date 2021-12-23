@@ -1,0 +1,6 @@
+@include('Sections.landing')
+@include('Sections.services')
+@include('Sections.process')
+@include('Sections.about')
+@include('Sections.clients')
+@include('Sections.contact')
