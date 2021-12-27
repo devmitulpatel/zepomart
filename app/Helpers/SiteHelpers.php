@@ -2,6 +2,7 @@
 
 use App\Models\DynamicSiteData;
 use App\Models\MainSite;
+use App\Models\StaticPage;
 use App\Models\TeamData;
 use Illuminate\Support\Str;
 
@@ -9,6 +10,13 @@ const DEFAULT_DB_CATCH_TIME = 1;
 const DEFAULT_DB_CATCH_VERY_FEW_TIME = 150;
 
 
+if(!function_exists('get_static_page_content')){
+    function get_static_page_content($slug){
+        $foundPage= StaticPage::where('slug',$slug)->first();
+        if($foundPage==null)abort(404);
+        return $foundPage->content;
+    }
+}
 if(!function_exists('get_sub_navigation')){
     function get_sub_navigation($hasSub,$data,$allData){
         $nav=[];
@@ -34,6 +42,9 @@ if(!function_exists('get_navigation')){
         $roots=$allNavs->where('parent',0);
         $nav=[];
 
+
+        $roots->sortBy('sort');
+
         foreach ($roots as $root){
 
            $foundSub=$allNavs->where('parent',$root->id);
@@ -41,7 +52,8 @@ if(!function_exists('get_navigation')){
            $nav[]=[
                'root'=>$root,
                'sub'=>get_sub_navigation($hasSubMenu,$foundSub,$allNavs),
-               'haveSub'=>($foundSub->count()>0 )
+               'haveSub'=>($foundSub->count()>0),
+               'sort'=>$root->sort
            ];
         }
         return  $nav;
@@ -86,6 +98,7 @@ if(!function_exists('get_dynamic')){
                 if(!cache('mainDomain')||$domainBase==null){
                     $domainBase=MainSite::where('domain',$request->getHost())->first()->siteData;
                 }
+                if(!$domainBase->where('slug',Str::slug($slug))->first())return null;
                 return $domainBase->where('slug',Str::slug($slug))->first()->value;
             });
 

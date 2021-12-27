@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\StaticPageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/','pages.home')->name('home');
 Route::view('/contact-us','pages.contact-us')->name('contact-us');
+Route::view('/about-us','pages.about-us')->name('about-us');
+Route::view('/blog','pages.about-us')->name('blog');
+
+Route::get('/page/{slug?}',[StaticPageController::class,'defaultFallback']);

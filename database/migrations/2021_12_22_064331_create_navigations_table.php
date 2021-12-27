@@ -17,6 +17,7 @@ class CreateNavigationsTable extends Migration
             $table->id();
             $table->string('display');
             $table->string('slug');
+            $table->unsignedBigInteger('sort')->default(0);
             $table->unsignedBigInteger('parent')->nullable();
             $table->string('link')->nullable();
             $table->string('route')->nullable();

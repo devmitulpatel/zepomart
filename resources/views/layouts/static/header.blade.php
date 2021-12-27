@@ -58,7 +58,11 @@
 
                         @foreach(get_navigation() as $nav)
                             @if(!$nav['haveSub'])
+
+
+
                                 <li class="nav-item"><a class="nav-link scroll" href="#{{$nav['root']->slug}}">{{$nav['root']->display}}</a></li>
+
                             @else
 
                                 <li class="nav-item dropdown">

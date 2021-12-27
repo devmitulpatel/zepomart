@@ -10,6 +10,43 @@
 //
 //dd($teams->createSocialLink($socialNetwork,'demo324234'));
 
+
+
+
+
+
+
+
+
+
+$array1=['A','B','C'];
+// 0 => 'A'
+// 1 => 'B'
+// 2 => 'C'
+
+//[
+//    'name'=>'mitul,
+//     'age' => 29
+//]
+
+//echo  $arr['age' ]
+
+
+1=>
+$array2=['1','2','3'];
+$array3=[true,false];
+$array4=[$array1,$array2];
+
+
+$array1[ $key ]
+
+
+
+
+
+
+
+
 dd(get_site_social());
 
 dd(\App\Models\Navigation::with(['parent'])->get()->groupBy('parent')->toArray());

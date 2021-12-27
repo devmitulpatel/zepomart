@@ -57,11 +57,23 @@ background-color: white;
 " /></a>
                 <button type="button" class="btn-close btn-close-white offcanvas-close offcanvas-nav-close" aria-label="Close"></button>
             </div>
-            <ul class="navbar-nav py-1">
+            <ul class="navbar-nav py-1 " style=" text-transform: capitalize;">
 
                 @foreach(get_navigation() as $nav)
                     @if(!$nav['haveSub'])
-                        <li class="nav-item py-1"><a class="nav-link scroll" href="#{{$nav['root']->slug}}">{{$nav['root']->display}}</a></li>
+
+                        @php
+                            $url=['#',$nav['root']->slug];
+                            $derivedUrl=$nav['root']->route??$nav['root']->link;
+                            if($nav['root']->route!=null){
+                                $derivedUrl=route($derivedUrl);
+                                $url=[$derivedUrl];
+                            }
+
+                        $url=implode('',$url);
+                        @endphp
+
+                        <li class="nav-item py-1"><a class="nav-link scroll" href="{{$url}}">{{$nav['root']->display}}</a></li>
                     @else
 
                         <li class="nav-item dropdown py-1">
@@ -106,7 +118,7 @@ background-color: white;
 
         </div>
         <div>
-            <div class="btn contact-btn btn-sm ">Contact</div>
+            <a href="{{route('contact-us')}}"><div class="btn contact-btn btn-sm ">Contact</div></a>
         </div>
         <div class="navbar-hamburger  navbar-toggler"><button class="hamburger animate plain" data-toggle="offcanvas-nav"><span></span></button></div>
     </div>

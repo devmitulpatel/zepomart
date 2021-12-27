@@ -34,6 +34,7 @@ class DynamicSiteDataSeeder extends Seeder
     }
 
     public function createBasicData(&$data){
+
         $data[]=[
             'name'=>'Site Charset',
             'slug'=>Str::slug('Site Charset'),
@@ -200,29 +201,59 @@ class DynamicSiteDataSeeder extends Seeder
 
 
 
-//        $data[]=[
-//            'name'=>'Site About Us Display Text',
-//            'slug'=>Str::slug('Site About Us Display Text'),
-//            'value'=>"Save your time and money by choosing our professional team.",
-//        ];
-//
-//        $data[]=[
-//            'name'=>'Site About Us Tag Text',
-//            'slug'=>Str::slug('Site About Us Tag Text'),
-//            'value'=>"Donec id elit non mi porta gravida at eget metus. Morbi leo risus, porta ac consectetur ac, vestibulum at eros tempus porttitor.",
-//        ];
-//
-//        $data[]=[
-//            'name'=>'Site Team Display Position',
-//            'slug'=>Str::slug('Site Team Display Position'),
-//            'value'=>"Marketing Specialist",
-//        ];
-//
-//        $data[]=[
-//            'name'=>'Site Team Display Quot',
-//            'slug'=>Str::slug('Site Team Display Quot'),
-//            'value'=>"Marketing Specialist",
-//        ];
+        $data[]=[
+            'name'=>'Page About Us Display Text',
+            'slug'=>Str::slug('Page About Us Display Text'),
+            'value'=>"Hello! This is Zepomart",
+        ];
+        $data[]=[
+            'name'=>'Page About Us Sub Title Text',
+            'slug'=>Str::slug('Page About Us Sub Title Text'),
+            'value'=>"A company turning ideas into beautiful real things.",
+        ];
+
+
+
+        $data[]=[
+            'name'=>'Page About Us Section Display Text',
+            'slug'=>Str::slug('Page About Us Section Display Text'),
+            'value'=>"FEW THINGS ABOUT US?",
+        ];
+        $data[]=[
+            'name'=>'Page About Us Section Sub Title Text',
+            'slug'=>Str::slug('Page About Us Section Sub Title Text'),
+            'value'=>"Our motivation lies in the appreciation we get from our partner brands which inspires us to excel further.",
+        ];
+
+        $data[]=[
+            'name'=>'Page About Us Section Description Text',
+            'slug'=>Str::slug('Page About Us Section Description Text'),
+            'value'=>"We are a team of like-minded individual who believes eCommerce is the face of new economy. With the fast evolving digital environment, we realised that setting up and growing a business online is a challenging task for any entity. With the intention of serving them and to realise full potential of digital world FinPlus came into existence.",
+        ];
+
+        $data[]=[
+            'name'=>'Page About Us Section Process Description Text 1',
+            'slug'=>Str::slug('Page About Us Section Process Description Text 1'),
+            'value'=>"Our philosophy is to create value for Society, employees, customers, and business ethically and diligently. We care deeply about our work and the impact it has on the world. We apply our talent, hustle, and willpower to every challenge we take on. We treat our clients like partners and our team members like family. As a company, we want to create a culture which encourages creativity and innovations. We are a team which is agile loves challenges, keeps evolving, and enjoys each other’s success in the process",
+        ];
+        $data[]=[
+            'name'=>'Page About Us Section Process Sub Description Text',
+            'slug'=>Str::slug('Page About Us Section Process Sub Description Text'),
+            'value'=>"
+We are the owners of the sphere, Of the seven stars and the Solar years, Of Ceaser’s Hand and Plato’s brain
+Just Kidding!",
+        ];
+        $data[]=[
+            'name'=>'Page About Us Section Process Title Text 1',
+            'slug'=>Str::slug('Page About Us Section Process Title Text 1'),
+            'value'=>"OUR WORK PROCESS",
+        ];
+        $data[]=[
+            'name'=>'Page About Us Section Process action Text',
+            'slug'=>Str::slug('Page About Us Section Process action Text'),
+            'value'=>"Reach us to know more about us",
+        ];
+
 
 
     }
