@@ -45,6 +45,20 @@ class MainSiteSeeder extends Seeder
             'owner_id'=>1,
         ];
 
+        $data[]=[
+            'name'=>'Test WebSite',
+            'slug'=>Str::slug('Test WebSite'),
+            'domain'=>'zepomart.com',
+            'owner_id'=>1,
+        ];
+
+        $data[]=[
+            'name'=>'Test WebSite',
+            'slug'=>Str::slug('Test WebSite'),
+            'domain'=>'www.zepomart.com',
+            'owner_id'=>1,
+        ];
+
 
 
     }

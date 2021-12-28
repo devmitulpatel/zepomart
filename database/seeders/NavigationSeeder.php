@@ -35,9 +35,10 @@ class NavigationSeeder extends Seeder
 
 
         $ouSort=3;
-        $ecomSort=4;
-        $wdSort=5;
-        $dbSort=6;
+        $ecomSort=5;
+        $wdSort=6;
+        $dbSort=7;
+        $opSort=4;
 
         $data[]=[
             'display'=>'Home',
@@ -61,6 +62,15 @@ class NavigationSeeder extends Seeder
             'parent'=>0,
             'sort'=>3
         ];
+
+
+        $data[]=[
+            'display'=>'Our Product',
+            'slug'=>Str::slug('Our Services'),
+            'parent'=>0,
+            'sort'=>4
+        ];
+
 
         $data[]=[
             'display'=>'eCommerce Management',
@@ -222,14 +232,14 @@ class NavigationSeeder extends Seeder
             'display'=>'Packages',
             'slug'=>Str::slug('Packages'),
             'parent'=>0,
-            'sort'=>3
+            'sort'=>5
 
         ];
 
         $data[]=[
             'display'=>'SEO Packages',
             'slug'=>Str::slug('SEO Packages'),
-            'parent'=>31,
+            'parent'=>32,
             'route'=>'seo-packages'
 
         ];
@@ -238,7 +248,7 @@ class NavigationSeeder extends Seeder
             'display'=>'Our Clients',
             'slug'=>Str::slug('Our Clients'),
             'parent'=>0,
-            'sort'=>4
+            'sort'=>6
 
         ];
 
@@ -246,8 +256,15 @@ class NavigationSeeder extends Seeder
             'display'=>'Blog',
             'slug'=>Str::slug('Blog'),
             'parent'=>0,
-            'sort'=>5,
+            'sort'=>7,
             'route'=>'blog'
+        ];
+
+        $data[]=[
+            'display'=>'easesurg',
+            'slug'=>Str::slug('easesurg'),
+            'parent'=>$opSort,
+            'link'=>'https://www.easesurg.com/'
         ];
 
 //        $data[]=[
