@@ -17,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::get('/packages',function (){
+   return \App\Http\Resources\PlanResource::collection(\App\Models\SeoPlan::with(['features'])->get()->sortBy('sort'));
+})->name('packages');

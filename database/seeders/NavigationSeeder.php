@@ -229,7 +229,8 @@ class NavigationSeeder extends Seeder
         $data[]=[
             'display'=>'SEO Packages',
             'slug'=>Str::slug('SEO Packages'),
-            'parent'=>30,
+            'parent'=>31,
+            'route'=>'seo-packages'
 
         ];
 

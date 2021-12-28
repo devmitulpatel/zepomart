@@ -25,3 +25,5 @@ Route::view('/about-us','Pages.about-us')->name('about-us');
 Route::view('/blog','Pages.about-us')->name('blog');
 
 Route::get('/page/{slug?}',[StaticPageController::class,'defaultFallback']);
+Route::view('/seo-packages','Pages.seo-packages')->name('seo-packages');
+

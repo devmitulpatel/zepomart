@@ -23,7 +23,7 @@ mix.webpackConfig({
  */
 
 mix
-//    .js('resources/js/app.js', 'public/js')
+    .js('resources/js/app.js', 'public/js')
   //  .postCss('resources/css/_template.css', 'public/css', [])
     .sass('resources/css/app.scss','public/css').sourceMaps();
 

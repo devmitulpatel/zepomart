@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\DynamicSiteData;
+use App\Models\PlanFeature;
 use App\Models\StaticPage;
 use Illuminate\Database\Seeder;
 
@@ -26,6 +27,9 @@ class DatabaseSeeder extends Seeder
          $this->call(TableUpdateSeeder::class);
          $this->call(NavigationSeeder::class);
          $this->call(StaticPageSeeder::class);
+         $this->call(SeoPlanFeatureCatSeeder::class);
+         $this->call(PlanFeatureSeeder::class);
+         $this->call(SeoPlanSeeder::class);
 
     }
 }

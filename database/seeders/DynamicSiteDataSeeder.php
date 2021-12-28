@@ -27,12 +27,36 @@ class DynamicSiteDataSeeder extends Seeder
         $this->createServiceData($data);
         $this->createContactData($data);
         $this->createAboutData($data);
+        $this->createSeoPackageData($data);
 
         seed_model($model,$data);
         $allData=DynamicSiteData::all();
-        MainSite::all()->first()->siteData()->attach($allData->pluck('id'));
+
+
+        foreach (MainSite::all() as $site){
+            $site->siteData()->attach($allData->pluck('id'));
+        }
+
+
     }
 
+    public function createSeoPackageData(&$data){
+
+        $data[]=[
+            'name'=>'Site Seo Page Heading Text',
+            'slug'=>Str::slug('Site Seo Page Heading Text'),
+            'value'=>'BEST SEO PLANS AND AFFORDABLE SEO PACKAGES IN INDIA',
+        ];
+
+        $data[]=[
+            'name'=>'Site Seo Page decription Text',
+            'slug'=>Str::slug('Site Seo Page decription Text'),
+            'value'=>'
+			<p align="justify">In the world online business, visibility determines the winner and in order to be visible, every business owner needs to invest in <strong>SEO services</strong> simply because it increases your web exposure in search engines and with the ever increasing level of competition, it’s imperative for you to stay up to date with the latest techniques of being visible.</p>
+<p align="justify">Marketing is tough, <strong>digital marketing</strong> is harder, but <strong>FinPlus Business Solution’s</strong> range of <strong>affordable SEO packages</strong> will not only help your company flourish but can also achieve profitable milestones.<br>
+Whether you’re a small business or a large corporation, we have one of the <strong>best SEO plans</strong> and prices for you to pick which cater exclusively to your business needs.</p>',
+        ];
+    }
     public function createBasicData(&$data){
 
         $data[]=[
@@ -105,7 +129,6 @@ class DynamicSiteDataSeeder extends Seeder
         $data[]=[
             'name'=>'Site Landing Picture',
             'slug'=>Str::slug('Site Landing Picture'),
-            // 'value'=>'assets/img/logo-light.png',
             'value'=>'assets/img/photos/bg9.jpg',
         ];
 
@@ -372,20 +395,27 @@ Give your business an online identity. FinPlus code ninjas create the best websi
             'name'=>'Site Logo',
             'slug'=>Str::slug('Site Logo'),
             //'value'=>'assets/img/logo.png',
-            'value'=>'assets/img/logo-text.png',
+            'value'=>'images/logo.png',
         ];
         $data[]=[
             'name'=>'Site Logo Light',
             'slug'=>Str::slug('Site Logo Light'),
             //'value'=>'assets/img/logo-light.png',
-            'value'=>'assets/img/logo-text.png',
+            'value'=>'images/logo.png',
         ];
 
         $data[]=[
             'name'=>'Site Footer Logo',
             'slug'=>Str::slug('Site Footer Logo'),
            // 'value'=>'assets/img/logo-light.png',
-            'value'=>'assets/img/logo-text.png',
+            'value'=>'images/logo.png',
+        ];
+
+        $data[]=[
+            'name'=>'Site Current Currency Symbol',
+            'slug'=>Str::slug('Site Current Currency Symbol'),
+            // 'value'=>'assets/img/logo-light.png',
+            'value'=>'₹',
         ];
 
     }

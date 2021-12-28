@@ -38,5 +38,14 @@ class MainSiteSeeder extends Seeder
         ];
 
 
+        $data[]=[
+            'name'=>'Test WebSite',
+            'slug'=>Str::slug('Test WebSite'),
+            'domain'=>'dev.zepomart.com',
+            'owner_id'=>1,
+        ];
+
+
+
     }
 }

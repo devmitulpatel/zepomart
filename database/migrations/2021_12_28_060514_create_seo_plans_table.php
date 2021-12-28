@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateNavigationsTable extends Migration
+class CreateSeoPlansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,17 @@ class CreateNavigationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('navigations', function (Blueprint $table) {
+        Schema::create('seo_plans', function (Blueprint $table) {
             $table->id();
-            $table->string('display');
+            $table->string('name');
             $table->string('slug');
+            $table->string('description')->nullable();
+            $table->bigInteger('monthly_cost')->default(0);
+            $table->bigInteger('yearly_cost')->default(0);
+            $table->bigInteger('discount')->default(0);
+            $table->boolean('status')->default(1);
+            $table->boolean('featured')->default(0);
             $table->unsignedBigInteger('sort')->default(0);
-            $table->unsignedBigInteger('parent')->nullable();
-            $table->string('link')->nullable();
-            $table->string('route')->nullable();
-            $table->json('route_para')->default();
             $table->timestamps();
         });
     }
@@ -33,6 +35,6 @@ class CreateNavigationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('navigations');
+        Schema::dropIfExists('seo_plans');
     }
 }

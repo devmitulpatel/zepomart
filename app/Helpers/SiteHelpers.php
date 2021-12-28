@@ -10,6 +10,34 @@ const DEFAULT_DB_CATCH_TIME = 1;
 const DEFAULT_DB_CATCH_VERY_FEW_TIME = 150;
 
 
+
+
+
+
+if(!function_exists('get_valid_link')){
+    function get_valid_link($data):string{
+        $url='';
+        if($data->link!=null){
+            $url=$data->link;
+        }else if($data->route!=null){
+            $url=route($data->route);
+        }
+        return $url;
+
+    }
+}
+
+if(!function_exists('check_valid_domain')){
+
+    function check_valid_domain(){
+        $host=request()->getHost();
+        $foundDomain=MainSite::where('domain',$host);
+        if($foundDomain->count()<1)abort(404);
+        remember_domain();
+    }
+
+
+}
 if(!function_exists('get_static_page_content')){
     function get_static_page_content($slug){
         $foundPage= StaticPage::where('slug',$slug)->first();

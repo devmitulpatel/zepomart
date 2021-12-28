@@ -17,7 +17,11 @@ class StaticPageController extends Controller
 
         $content=get_static_page_content($slug);
         return view('layouts.static-page',compact(['content']));
-
-
     }
+
+
+
+
+
+
 }
