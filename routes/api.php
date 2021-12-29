@@ -20,5 +20,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::get('/packages',function (){
-   return \App\Http\Resources\PlanResource::collection(\App\Models\SeoPlan::with(['features'])->get()->sortBy('sort'));
+   return \App\Http\Resources\PlanResource::collection(\App\Models\SeoPlan::with(['features'])->get()->sortBy('sort'))->additional(['categories'=>\App\Models\SeoPlanFeatureCat::all()]);
 })->name('packages');

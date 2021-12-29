@@ -2,3 +2,15 @@
 
 $primary-base-color: rgb(40,73,133);
 $primary-base-color-2: rgb(177,204,30);
+
+
+.onepage::-webkit-scrollbar {
+    width: 3px;
+    height: 5px;
+}
+.onepage::-webkit-scrollbar-track {
+    background: #d8d8d8;
+}
+.onepage::-webkit-scrollbar-thumb {
+    background: #666;
+}

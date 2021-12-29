@@ -1,5 +1,18 @@
 @import url(https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700);
 @charset "UTF-8";
+.onepage::-webkit-scrollbar {
+  width: 3px;
+  height: 5px;
+}
+
+.onepage::-webkit-scrollbar-track {
+  background: #d8d8d8;
+}
+
+.onepage::-webkit-scrollbar-thumb {
+  background: #666;
+}
+
 /*!
 Theme Name: Sandbox - Modern & Multipurpose Bootstrap 5 Template
 Theme URI:	https://sandbox.elemisthemes.com/
@@ -43382,4 +43395,50 @@ footer.bg-dark.angled.lower-start:after, footer.bg-dark.angled.upper-start:befor
 
 [v-cloak] {
   display: none;
+}
+
+.categories-head {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+.categories-head .uil {
+  margin-left: 5px;
+}
+.categories-head .categories-head-icon {
+  margin-left: 30px;
+}
+
+.categories-head-activated {
+  background-color: #b1cc1e;
+  color: white !important;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+.categories-head-activated .uil {
+  background-color: #b1cc1e !important;
+  color: #284985 !important;
+  border: 1px solid #284985;
+}
+
+.categories-head:hover .uil {
+  font-weight: bolder;
+  background-color: #b1cc1e !important;
+  color: #284985 !important;
+}
+
+.sub-feature {
+  margin-left: 20px;
+}
+.sub-feature .sub-feature-icon {
+  margin-left: 0;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.feature-category-span {
+  display: block;
+  border-bottom: 1px solid #b1cc1e;
 }

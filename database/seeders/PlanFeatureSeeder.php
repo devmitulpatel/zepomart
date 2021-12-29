@@ -48,11 +48,7 @@ class PlanFeatureSeeder extends Seeder
         ];
 
 
-        $data[]=[
-            'name'=>'H1, H2 Optimization',
-            'slug'=>Str::slug('H1, H2 Optimization'),
-            'type'=>$opd,
-        ];
+
 
         $data[]=[
             'name'=>'Meta & Title Tag Optimization',
@@ -80,11 +76,7 @@ class PlanFeatureSeeder extends Seeder
             'type'=>$opd,
         ];
 
-        $data[]=[
-            'name'=>'Image & Hyperlink Optimization',
-            'slug'=>Str::slug('Image & Hyperlink Optimization'),
-            'type'=>$opd,
-        ];
+
 
         $data[]=[
             'name'=>'Image & Hyperlink Optimization',

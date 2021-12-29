@@ -36,10 +36,15 @@
 
                     <div v-for="plan in plans" class="col-md-6 col-lg-4">
                         <div class="pricing card text-center">
-                            <div class="card-body">
-                                <img src="{{asset('assets/img/icons/lineal/shopping-basket.svg')}}"
-                                     class="svg-inject icon-svg icon-svg-md text-primary mb-3" alt=""/>
-                                <h4 class="card-title">@{{ plan.name }}</h4>
+                            <div class="card-body w-100">
+
+                                <img src="{{asset('assets/img/icons/lineal/plan.svg')}}"
+                                     class="icon-svg icon-svg-md text-primary mb-3" alt=""/>
+                                <h4 class="card-title ">@{{ plan.name }}
+                                <br>
+                                    <small class="card-text ">@{{ plan.description }}</small>
+                                </h4>
+
                                 <div class="prices text-dark">
                                     <div class="price price-show"><span
                                             class="price-currency">{{get_dynamic('Site Current Currency Symbol')}}</span><span
@@ -50,15 +55,36 @@
                                 <ul class="icon-list bullet-bg bullet-soft-primary mt-8 mb-9 text-start">
 
 
-                                    <li v-for="feature in plan.features" :class="{'popular':feature.featured}">
 
-                                        <i :class="{
-                                        'uil':true,
+                                    <span class="feature-category-span" v-for="(category,key) in featureFilterByCategory(plan.features)" style="">
+
+                                        <li class="categories-head cursor-pointer" v-on:click="toggleCategory(key)" :class="{'categories-head-activated':isCurrentCategoryActive(key)}">
+                                            @{{categories[key].name}}
+                                            <i :class="{
+                                            'uil':true,
+                                            'uil-arrow-down':isCurrentCategoryActive(key),
+                                            'uil-arrow-right':!isCurrentCategoryActive(key)
+                                            }"></i>
+
+                                        </li>
+
+                                        <span v-if="isCurrentCategoryActive(key)"  style="display:block;border:1px solid rgba(0,0,0,0.2);border-top:0;border-bottom: 0; padding: 10px">
+                                            <li v-for="feature in category" :class="{'popular':feature.featured}" class="sub-feature">
+
+                                        <i  :class="{
+                                        'uil sub-feature-icon':true,
                                         'uil-check':feature.pivot.status,
                                         'uil-times bullet-soft-red':!feature.pivot.status
                                         }"></i>
                                         @{{ feature.name }}
                                     </li>
+                                        </span>
+
+
+
+
+                                    </span>
+
 
                                 </ul>
                                 <a href="#" class="btn btn-primary rounded-pill">Choose Plan</a>

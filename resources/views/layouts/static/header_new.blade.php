@@ -41,7 +41,7 @@
 
         <div class="navbar-brand">
             <a href="{{route('home')}}">
-                <img src="{{asset(get_dynamic('Site Logo'))}}" alt="" style="max-height: 70px;padding: 15px;" />
+                <img src="{{asset(get_dynamic('Site Logo'))}}" alt="" style="max-width:120px;max-height: 70px;padding: 15px;" />
             </a>
         </div>
 
@@ -61,7 +61,6 @@ background-color: white;
 
                 @foreach(get_navigation() as $nav)
                     @if(!$nav['haveSub'])
-
                         @php
                             $url=['#',$nav['root']->slug];
                             $derivedUrl=$nav['root']->route??$nav['root']->link;
@@ -73,7 +72,7 @@ background-color: white;
                         $url=implode('',$url);
                         @endphp
 
-                        <li class="nav-item py-1"><a class="nav-link scroll" href="{{$url}}">{{$nav['root']->display}}</a></li>
+                        <li class="nav-item py-1"><a class="nav-link scroll"  href="{{$url}}">{{$nav['root']->display}}</a></li>
                     @else
 
                         <li class="nav-item dropdown py-1">
@@ -88,13 +87,13 @@ background-color: white;
                                                 > {{$subnav['root']->display}}</a>
                                             <ul class="dropdown-menu text-white ">
                                                 @foreach($subnav['sub'] as $supersub)
-                                                    <li><a class="dropdown-item" href="#scrollspyHeading3">> {{$supersub->display}}</a></li>
+                                                    <li><a class="dropdown-item" target="_blank" href="#scrollspyHeading3">> {{$supersub->display}}</a></li>
                                                 @endforeach
                                             </ul>
                                         </li>
                                     @else
                                         <li class="nav-item  py-1">
-                                            <a class="nav-link py-1" href="{{get_valid_link($subnav['root'])}}" >> {{$subnav['root']->display}}</a>
+                                            <a class="nav-link py-1" target="_blank" href="{{get_valid_link($subnav['root'])}}" >> {{$subnav['root']->display}}</a>
 
                                         </li>
                                     @endif
