@@ -87,13 +87,13 @@ background-color: white;
                                                 > {{$subnav['root']->display}}</a>
                                             <ul class="dropdown-menu text-white ">
                                                 @foreach($subnav['sub'] as $supersub)
-                                                    <li><a class="dropdown-item" target="_blank" href="#scrollspyHeading3">> {{$supersub->display}}</a></li>
+                                                    <li><a class="dropdown-item"  href="{{get_valid_link($supersub)}}">> {{$supersub->display}}</a></li>
                                                 @endforeach
                                             </ul>
                                         </li>
                                     @else
                                         <li class="nav-item  py-1">
-                                            <a class="nav-link py-1" target="_blank" href="{{get_valid_link($subnav['root'])}}" >> {{$subnav['root']->display}}</a>
+                                            <a class="nav-link py-1" @if($subnav['root']->parent==4) target="_blank"@endif href="{{get_valid_link($subnav['root'])}}" >> {{$subnav['root']->display}}</a>
 
                                         </li>
                                     @endif

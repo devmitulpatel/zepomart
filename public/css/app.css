@@ -43442,3 +43442,41 @@ footer.bg-dark.angled.lower-start:after, footer.bg-dark.angled.upper-start:befor
   display: block;
   border-bottom: 1px solid #b1cc1e;
 }
+
+.select-none {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+}
+.select-none * {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+}
+
+.whatsapp-btn-overfly {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  font-size: 35px;
+  line-height: 36px;
+  margin: 0;
+}
+.whatsapp-btn-overfly img {
+  width: 46px;
+  height: 46px;
+}

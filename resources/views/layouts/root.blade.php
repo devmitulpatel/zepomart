@@ -22,9 +22,11 @@
         <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
     </svg>
 </div>
-
+<a class="whatsapp-btn-overfly" target="_blank" href="https://web.whatsapp.com/send?phone={{get_dynamic('Site Contact Number 1')}}&amp;text=">
+    <img src="{{asset('images/whatsapp-icon-square.svg')}}">
+</a>
 </body>
 
-
+//
 @include('layouts.static.js')
 </html>

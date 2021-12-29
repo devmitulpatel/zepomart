@@ -35,8 +35,8 @@
 
 
                     <div v-for="plan in plans" class="col-md-6 col-lg-4">
-                        <div class="pricing card text-center">
-                            <div class="card-body w-100">
+                        <div class="pricing card text-center select-none">
+                            <div class="card-body w-100 select-none">
 
                                 <img src="{{asset('assets/img/icons/lineal/plan.svg')}}"
                                      class="icon-svg icon-svg-md text-primary mb-3" alt=""/>

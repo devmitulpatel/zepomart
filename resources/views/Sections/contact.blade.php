@@ -3,7 +3,11 @@
         <div class="container py-14 py-md-17">
             <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
                 <div class="col-lg-7">
-                    <figure><img class="w-auto" src="{{asset(get_dynamic('Site Contact Section Icon'))}}"  alt="" /></figure>
+                    @php
+                    $displayImage=(isset($display_image))?$display_image:null;
+                    if($displayImage==null)$displayImage=get_dynamic('Site Contact Section Icon');
+                    @endphp
+                    <figure><img class="w-auto" src="{{asset($displayImage)}}"  alt="" /></figure>
                 </div>
                 <!--/column -->
                 <div class="col-lg-5">

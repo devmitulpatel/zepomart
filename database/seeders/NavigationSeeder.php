@@ -267,6 +267,13 @@ class NavigationSeeder extends Seeder
             'link'=>'https://www.easesurg.com/'
         ];
 
+        $data[]=[
+            'display'=>'Crowdtizer',
+            'slug'=>Str::slug('Crowdtizer'),
+            'parent'=>$opSort,
+          //  'link'=>'https://www.easesurg.com/'
+        ];
+
 //        $data[]=[
 //            'display'=>'Association',
 //            'slug'=>Str::slug('Association'),

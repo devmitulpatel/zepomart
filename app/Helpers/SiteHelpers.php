@@ -22,6 +22,7 @@ if(!function_exists('get_valid_link')){
         }else if($data->route!=null){
             $url=route($data->route);
         }
+        if($url=='')$url=implode('',['#',$data->slug]);
         return $url;
 
     }
