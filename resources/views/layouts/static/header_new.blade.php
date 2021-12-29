@@ -93,7 +93,7 @@ background-color: white;
                                         </li>
                                     @else
                                         <li class="nav-item  py-1">
-                                            <a class="nav-link py-1" @if($subnav['root']->parent==4) target="_blank"@endif href="{{get_valid_link($subnav['root'])}}" >> {{$subnav['root']->display}}</a>
+                                            <a class="nav-link py-1" @if($subnav['root']->parent==4 && ($subnav['root']->url!=null || $subnav['root']->link!=null )) target="_blank"@endif href="{{get_valid_link($subnav['root'])}}" >> {{$subnav['root']->display}}</a>
 
                                         </li>
                                     @endif
