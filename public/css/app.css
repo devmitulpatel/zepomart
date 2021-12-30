@@ -43529,3 +43529,17 @@ footer.bg-dark.angled.lower-start:after, footer.bg-dark.angled.upper-start:befor
   position: fixed;
   left: -2002px;
 }
+
+.whatsapp-btn-overfly-popup-close {
+  cursor: pointer;
+  background: linear-gradient(#12c665 0%, #009446 100%);
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  display: block;
+}
+.whatsapp-btn-overfly-popup-close i {
+  color: white;
+  line-height: 46px;
+  padding: 5px;
+}

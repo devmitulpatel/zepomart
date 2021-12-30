@@ -46,9 +46,15 @@
 
     </div>
 
-    <span v-on:click="togglePopup"  target="_blank" href="https://web.whatsapp.com/send?phone={{get_dynamic('Site Contact Number 1')}}&amp;text=">
+    <span :class="{'whatsapp-btn-overfly-popup-hidden':popUpOpened}" v-on:click="togglePopup"  >
         <img src="{{asset('images/whatsapp-icon-square.svg')}}">
     </span>
+
+    <span :class="{'whatsapp-btn-overfly-popup-hidden':!popUpOpened}" v-on:click="togglePopup" class="whatsapp-btn-overfly-popup-close" >
+        <i class="uil uil-times"></i>
+    </span>
+
+
 
 
 

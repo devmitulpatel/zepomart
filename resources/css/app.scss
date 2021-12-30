@@ -215,3 +215,18 @@
     position: fixed;
      left: -2002px;
 }
+.whatsapp-btn-overfly-popup-close{
+    cursor: pointer;
+    background: linear-gradient(rgb(18, 198, 101) 0%, rgb(0, 148, 70) 100%);
+    border-radius:50% ;
+    width: 46px;
+    height: 46px;
+    display: block;
+    i{
+
+        color: white;
+        line-height: 46px;
+        padding: 5px;
+    }
+
+}
