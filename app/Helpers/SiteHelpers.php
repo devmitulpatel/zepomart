@@ -17,9 +17,15 @@ const DEFAULT_DB_CATCH_VERY_FEW_TIME = 150;
 
 
 
+
 if(!function_exists('seed_array')){
     function only_numbers($string){
         return preg_replace('/[^0-9]/', '', $string);
+    }
+}
+if(!function_exists('get_css_js_version')){
+    function get_css_js_version(){
+        return 'v='.env('APP_CSS_JS_VERSION',now()->toString());
     }
 }
 if(!function_exists('seed_array')){
