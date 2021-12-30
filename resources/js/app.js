@@ -79,5 +79,59 @@ const pricing = {
 
     }
 }
+const whatsapp = {
+    name:'WhatsApp',
+    props:[],
+    data() {
+        return {
+
+            //messageText:'Hello, I have some queries about WhatsApp Business API, need you help!',
+            messageText:'',
+            number:null,
+            linkBase:'https://api.whatsapp.com/send',
+            popUpOpened:false
+
+        }
+    },
+    mounted() {
+
+        this.inputFromDiv();
+
+    },
+    beforeCreate() {
+
+
+
+    },
+
+    computed:{
+
+    },
+
+    methods:{
+        goToWhatsapp(){
+            this.togglePopup();
+            window.open(this.makeLink(),'_blank');
+        },
+        inputFromDiv(){
+            this.number = document.getElementById('whatsapp-vue-component').getAttribute('phone-no');
+            this.messageText = document.getElementById('whatsapp-vue-component').getAttribute('message');
+        },
+        togglePopup(){
+            this.popUpOpened=(this.popUpOpened)?false:true;
+        },
+        makeLink(){
+            let para=[
+                ['phone',this.number].join('='),
+                ['text',this.messageText].join('='),
+            ].join('&');
+
+            return [this.linkBase,para].join('?');
+        }
+
+
+    }
+}
 
 Vue.createApp(pricing).mount('#pricing-vue-component')
+Vue.createApp(whatsapp).mount('#whatsapp-vue-component')

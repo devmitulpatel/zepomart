@@ -31,6 +31,19 @@ class SocialNetworkSeeder extends Seeder
         ];
 
         $data[]=[
+            'name'=>'Instagram',
+            'slug'=>Str::slug('Instagram'),
+            'icon_class'=>'uil uil-instagram',
+        ];
+
+
+        $data[]=[
+            'name'=>'Linkedin',
+            'slug'=>Str::slug('Linkedin'),
+            'icon_class'=>'uil uil-linkedin',
+        ];
+
+        $data[]=[
             'name'=>'Twitter',
             'slug'=>Str::slug('Twitter'),
             'icon_class'=>'uil uil-twitter',
@@ -41,10 +54,7 @@ class SocialNetworkSeeder extends Seeder
             'slug'=>Str::slug('Skype'),
             'icon_class'=>'uil uil-skype',
         ];
-        $data[]=[
-            'name'=>'Linkedin',
-            'slug'=>Str::slug('Linkedin'),
-            'icon_class'=>'uil uil-linkedin',
-        ];
+
+
     }
 }

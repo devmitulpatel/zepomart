@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\ClientFeedback;
 use App\Models\DynamicSiteData;
 use App\Models\MainSite;
 use App\Models\StaticPage;
@@ -14,6 +15,28 @@ const DEFAULT_DB_CATCH_VERY_FEW_TIME = 150;
 
 
 
+
+
+if(!function_exists('seed_array')){
+    function only_numbers($string){
+        return preg_replace('/[^0-9]/', '', $string);
+    }
+}
+if(!function_exists('seed_array')){
+    function seed_array($name,$value){
+        return [
+            'name'=>$name,
+            'slug'=>Str::slug($name),
+            'value'=>$value,
+        ];
+    }
+}
+if(!function_exists('get_client_feedbacks')){
+    function get_client_feedbacks(){
+        $model= ClientFeedback::query()->inRandomOrder()->take(3)->get();
+        return $model;
+    }
+}
 if(!function_exists('get_valid_link')){
     function get_valid_link($data):string{
         $url='';
@@ -106,6 +129,9 @@ if(!function_exists('remember_domain')){
     function remember_domain(){
         if(!cache('mainDomain')||true)
 
+            cache()->remember('mainRoot',DEFAULT_DB_CATCH_VERY_FEW_TIME,function (){
+                return MainSite::where('domain',request()->getHost())->first();
+            });
             cache()->remember('mainDomain', DEFAULT_DB_CATCH_VERY_FEW_TIME, function () {
             return MainSite::where('domain',request()->getHost())->first()->siteData;
         });
@@ -185,8 +211,8 @@ if(!function_exists('get_site_social')){
     function get_site_social(){
 
         $domain=null;
-        if($domain==null)$domain=MainSite::whereKey(1)->first();
+        if($domain==null)$domain=cache('mainRoot');
         $domain->load(['socials']);
-        return $domain->socials;
+        return $domain->socials->take(3);
     }
 }

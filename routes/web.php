@@ -26,4 +26,5 @@ Route::view('/blog','Pages.about-us')->name('blog');
 
 Route::get('/page/{slug?}',[StaticPageController::class,'defaultFallback']);
 Route::view('/seo-packages','Pages.seo-packages')->name('seo-packages');
+Route::view('/ecommerce-marketing-packages','Pages.ecommerce-marketing-packages')->name('ecommerce-marketing-packages');
 

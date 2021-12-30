@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\ClientFeedback;
 use App\Models\DynamicSiteData;
 use App\Models\PlanFeature;
 use App\Models\StaticPage;
@@ -30,6 +31,7 @@ class DatabaseSeeder extends Seeder
          $this->call(SeoPlanFeatureCatSeeder::class);
          $this->call(PlanFeatureSeeder::class);
          $this->call(SeoPlanSeeder::class);
+         $this->call(ClientFeedbackSeeder::class);
 
     }
 }

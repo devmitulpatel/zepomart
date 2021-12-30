@@ -3,20 +3,20 @@
         <div class="row gy-6 gy-lg-0">
             <div class="col-md-4 col-lg-3">
                 <div class="widget">
-                    <img class="mb-4" src="{{asset(get_dynamic('Site Footer Logo'))}}" alt="" style="background-color: white;
+                   <a href="{{route('home')}}"><img class="mb-4" src="{{asset(get_dynamic('Site Footer Logo'))}}" alt="" style="background-color: white;
     padding: 13px 15px;
     border-style: groove;
     max-height: 70px;
     border-radius: 17px;
-    box-shadow: -5px 5px 14px rgb(0,0, 0 ,0.9)" />
+    box-shadow: -5px 5px 14px rgb(0,0, 0 ,0.9)" /></a>
                     <p class="mb-4">{!! get_dynamic('Site Copywrite text') !!}
                     <nav class="nav social social-white">
-
                         @foreach(get_site_social() as $links)
                             <a href="{{$links->pivot->link}}"><i class="{{$links->icon_class}}"></i></a>
                         @endforeach
-
                     </nav>
+
+
                     <!-- /.social -->
                 </div>
                 <!-- /.widget -->
@@ -26,8 +26,10 @@
                 <div class="widget">
                     <h4 class="widget-title text-white mb-3">Get in Touch</h4>
                     <address class="pe-xl-15 pe-xxl-17">
-                        <small>{!! get_dynamic('Site Short Address') !!}</small></address>
-                    <a href="mailto:{!! get_dynamic('Site Contact Email') !!}">{!! get_dynamic('Site Contact Email') !!}</a><br /> {!! get_dynamic('Site Contact Number 1') !!}
+                        <span>{!! get_dynamic('Site Short Address') !!}</span>
+                    </address>
+                    <a href="mailto:{!! get_dynamic('Site Contact Email') !!}"><i class="uil uil-mailbox"></i> {!! get_dynamic('Site Contact Email') !!}</a>
+                    <br /> <a href="tel:{!! get_dynamic('Site Contact Number 1') !!}"><i class="uil uil-phone"></i> {!! get_dynamic('Site Contact Number 1') !!}</a>
                 </div>
                 <!-- /.widget -->
             </div>

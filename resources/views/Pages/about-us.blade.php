@@ -67,50 +67,44 @@
         <!-- /.row -->
         <div class="row gx-lg-8 gx-xl-12 gy-10 align-items-center">
             <div class="col-lg-6 order-lg-2">
-                <div class="card me-lg-6">
-                    <div class="card-body p-6">
-                        <div class="d-flex flex-row">
-                            <div>
-                                <span class="icon btn btn-circle btn-lg btn-soft-primary disabled me-4"><span class="number">01</span></span>
-                            </div>
-                            <div>
-                                <h4 class="mb-1">Collect Ideas</h4>
-                                <p class="mb-0">Nulla vitae elit libero pharetra augue dapibus.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!--/.card-body -->
-                </div>
-                <!--/.card -->
-                <div class="card ms-lg-13 mt-6">
-                    <div class="card-body p-6">
-                        <div class="d-flex flex-row">
-                            <div>
-                                <span class="icon btn btn-circle btn-lg btn-soft-primary disabled me-4"><span class="number">02</span></span>
-                            </div>
-                            <div>
-                                <h4 class="mb-1">Data Analysis</h4>
-                                <p class="mb-0">Vivamus sagittis lacus vel augue laoreet.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!--/.card-body -->
-                </div>
-                <!--/.card -->
-                <div class="card mx-lg-6 mt-6">
-                    <div class="card-body p-6">
-                        <div class="d-flex flex-row">
-                            <div>
-                                <span class="icon btn btn-circle btn-lg btn-soft-primary disabled me-4"><span class="number">03</span></span>
-                            </div>
-                            <div>
-                                <h4 class="mb-1">Finalize Product</h4>
-                                <p class="mb-0">Cras mattis consectetur purus sit amet.</p>
+
+
+
+                @for ($i = 1; $i < 4; $i++)
+
+                    @php
+                    $class="";
+                    switch ($i){
+
+                            case 1:
+                                $class="card me-lg-6";
+                                break;
+                            case 2:
+                                $class="card ms-lg-13 mt-6";
+                                break;
+                            case 3:
+                                $class="card mx-lg-6 mt-6";
+                                break;
+
+                        }
+                    @endphp
+
+                    <div class="{{$class}}" >
+                        <div class="card-body p-6">
+                            <div class="d-flex flex-row">
+                                <div>
+                                    <span class="icon btn btn-circle btn-lg btn-soft-primary disabled me-4"><span class="number">{{$i}}</span></span>
+                                </div>
+                                <div>
+                                    <h4 class="mb-1">{{get_dynamic(implode(' ',['Page About Us Section Process Step',$i,'Title']))}}</h4>
+                                    <p class="mb-0">{{get_dynamic(implode(' ',['Page About Us Section Process Step',$i,'Description']))}}</p>
+                                </div>
                             </div>
                         </div>
+                        <!--/.card-body -->
                     </div>
-                    <!--/.card-body -->
-                </div>
+                @endfor
+
                 <!--/.card -->
             </div>
             <!--/column -->
@@ -118,7 +112,6 @@
                 <h2 class="display-6 mb-3">How It Works?</h2>
                 <p class="lead fs-lg pe-lg-5">{!! get_dynamic('Page About Us Section Process Sub Description Text') !!}</p>
                 <p>{!! get_dynamic('Page About Us Section Process Description Text 1') !!}</p>
-                <p class="mb-6 d-none">Nullam id dolor id nibh ultricies vehicula ut id elit. Vestibulum id ligula porta felis euismod semper. Aenean lacinia bibendum nulla sed consectetur. Sed posuere consectetur est at lobortis. Vestibulum id ligula porta felis.</p>
                 <a href="{{route('contact-us')}}" class="btn btn-primary rounded-pill mb-0 text-capitalize">{!! get_dynamic('Page About Us Section Process action Text') !!}</a>
             </div>
             <!--/column -->
@@ -133,47 +126,16 @@
         <div class="row gx-lg-8 gx-xl-0 align-items-center">
             <div class="col-md-5 col-lg-4 offset-lg-1 d-none d-md-flex position-relative">
                 <div class="shape rounded-circle bg-pale-primary rellax w-21 h-21" data-rellax-speed="1" style="top: 7rem; left: 1rem"></div>
-                <figure><img src="assets/img/photos/co1.png" alt=""></figure>
+                <figure><img src="{{asset(get_dynamic('Page About Us Section Feedback Display Image'))}}" alt=""></figure>
             </div>
             <!--/column -->
             <div class="col-md-7 col-lg-6 col-xl-6 col-xxl-5 offset-xl-1">
                 <div class="basic-slider owl-carousel dots-start gap-small mt-6" data-margin="30">
-                    <div class="item">
-                        <blockquote class="icon fs-lg">
-                            <p>“Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Vestibulum ligula porta felis euismod semper. Cras justo odio consectetur nulla dapibus curabitur blandit.”</p>
-                            <div class="blockquote-details">
-                                <div class="info ps-0">
-                                    <h5 class="mb-1">Coriss Ambady</h5>
-                                    <p class="mb-0">Financial Analyst</p>
-                                </div>
-                            </div>
-                        </blockquote>
-                    </div>
-                    <!-- /.item -->
-                    <div class="item">
-                        <blockquote class="icon fs-lg">
-                            <p>“Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Vestibulum ligula porta felis euismod semper. Cras justo odio consectetur adipiscing dapibus curabitur blandit.”</p>
-                            <div class="blockquote-details">
-                                <div class="info ps-0">
-                                    <h5 class="mb-1">Cory Zamora</h5>
-                                    <p class="mb-0">Marketing Specialist</p>
-                                </div>
-                            </div>
-                        </blockquote>
-                    </div>
-                    <!-- /.item -->
-                    <div class="item">
-                        <blockquote class="icon fs-lg">
-                            <p>“Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Vestibulum ligula porta felis euismod semper. Cras justo odio consectetur adipiscing dapibus curabitur blandit.”</p>
-                            <div class="blockquote-details">
-                                <div class="info ps-0">
-                                    <h5 class="mb-1">Nikolas Brooten</h5>
-                                    <p class="mb-0">Sales Manager</p>
-                                </div>
-                            </div>
-                        </blockquote>
-                    </div>
-                    <!-- /.item -->
+
+
+                    @include('Sections.client-partial')
+
+
                 </div>
                 <!-- /.owl-carousel -->
             </div>
@@ -248,7 +210,7 @@
 <!-- /section -->
 
 
-@include('Sections.contact',['display_image'=>'assets/img/photos/about4.jpg'])
+@include('Sections.contact',['display_image'=>get_dynamic('Page About Us Section Contact us Display Image')])
 
 <!-- /section -->
 @endsection

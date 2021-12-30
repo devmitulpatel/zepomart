@@ -236,11 +236,21 @@ class NavigationSeeder extends Seeder
 
         ];
 
+        $pck=32;
+
         $data[]=[
             'display'=>'SEO Packages',
             'slug'=>Str::slug('SEO Packages'),
-            'parent'=>32,
+            'parent'=>$pck,
             'route'=>'seo-packages'
+
+        ];
+
+        $data[]=[
+            'display'=>'eCommerce Marketing',
+            'slug'=>Str::slug('eCommerce Marketing'),
+            'parent'=>$pck,
+            'route'=>'ecommerce-marketing-packages'
 
         ];
 
@@ -271,7 +281,6 @@ class NavigationSeeder extends Seeder
             'display'=>'Crowdtizer',
             'slug'=>Str::slug('Crowdtizer'),
             'parent'=>$opSort,
-          //  'link'=>'https://www.easesurg.com/'
         ];
 
 //        $data[]=[
@@ -287,13 +296,41 @@ class NavigationSeeder extends Seeder
     private function makeSocialEntry()
     {
         $allSocial=SocialNetwork::all();
-        $currentSite=MainSite::where('id',1)->first();
 
-        foreach ($allSocial as $social){
 
-            $link=implode('/',[$social->name,$currentSite->name]);
-            $currentSite->createSocialLink($social,$link);
+        // https://www.facebook.com/zepomartindia/
+        // https://www.instagram.com/zepomart/
+        // https://linkedin.com/company/zepomart-technologies-pvt-ltd
 
+
+        foreach (MainSite::all() as $site){
+            foreach ($allSocial as $social){
+
+                switch ($social->id){
+                    case 1:
+                        $link='https://www.facebook.com/zepomartindia/';
+                        break;
+                    case 2:
+                        $link='https://www.instagram.com/zepomart/';
+                        break;
+                    case 3:
+                        $link='https://linkedin.com/company/zepomart-technologies-pvt-ltd';
+                        break;
+                    case 4:
+                        break;
+                    case 5:
+                        break;
+
+                    default:
+                        $link=implode('/',[$social->name,$site->name]);
+                }
+
+
+                $site->createSocialLink($social,$link);
+
+            }
         }
+
+
     }
 }

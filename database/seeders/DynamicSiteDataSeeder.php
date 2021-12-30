@@ -100,6 +100,8 @@ Whether you’re a small business or a large corporation, we have one of the <st
             'value'=>'© '.date('Y').' Zepomart. <br class="d-none d-lg-block" />All rights reserved.</p>',
         ];
 
+        $data[]=seed_array('Site WhatsApp Message','Hello, I have some queries about WhatsApp Business API, need you help!');
+
     }
     public function createHomeData(&$data){
 
@@ -277,6 +279,47 @@ Just Kidding!",
             'value'=>"Reach us to know more about us",
         ];
 
+        $data[]=[
+            'name'=>'Page About Us Section Feedback Display Image',
+            'slug'=>Str::slug('Page About Us Section Feedback Display Image'),
+            'value'=>"assets/img/photos/co1.png",
+        ];
+
+        $data[]=[
+            'name'=>'Page About Us Section Contact us Display Image',
+            'slug'=>Str::slug('Page About Us Section Contact us Display Image'),
+            'value'=>"assets/img/photos/about4.jpg",
+        ];
+
+
+        $data[]=seed_array(
+            'Page About Us Section Process Step 1 Title',
+            "Planning & Strategy"
+        );
+        $data[]=seed_array(
+            'Page About Us Section Process Step 1 Description',
+            "We analyze the situation to place ourselves in the correct scenario and plan the strategy that will work."
+        );
+
+        $data[]=seed_array(
+            'Page About Us Section Process Step 2 Title',
+            "Design & Develop"
+        );
+        $data[]=seed_array(
+            'Page About Us Section Process Step 2 Description',
+            "We devise the right strategy that best suits your needs and design an outline to develop your brand’s identity."
+        );
+        $data[]=seed_array(
+            'Page About Us Section Process Step 3 Title',
+            "Test & Deliver"
+        );
+        $data[]=seed_array(
+            'Page About Us Section Process Step 3 Description',
+            "We devise the right strategy that best suits your needs and design an outline to develop your brand’s identity."
+        );
+
+
+
 
 
     }
@@ -388,7 +431,7 @@ Give your business an online identity. FinPlus code ninjas create the best websi
         $data[]=[
             'name'=>'Site Short Address',
             'slug'=>Str::slug('Site Short Address'),
-            'value'=>'F-713, 7<sup>th</sup> Floor, Titanium City Center Corporate Office,100 feet AnandNagar Road, Ahmedabad,Gujarat-380015',
+            'value'=>'F-713, 7<sup>th</sup> Floor, Titanium City Center Corporate Office, 100 feet AnandNagar Road, Ahmedabad, Gujarat-380015',
         ];
 
         $data[]=[

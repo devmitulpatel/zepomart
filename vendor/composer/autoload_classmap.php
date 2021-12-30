@@ -20,6 +20,8 @@ return array(
     'App\\Http\\Middleware\\TrustHosts' => $baseDir . '/app/Http/Middleware/TrustHosts.php',
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
+    'App\\Http\\Resources\\PlanResource' => $baseDir . '/app/Http/Resources/PlanResource.php',
+    'App\\Models\\ClientFeedback' => $baseDir . '/app/Models/ClientFeedback.php',
     'App\\Models\\DynamicSiteData' => $baseDir . '/app/Models/DynamicSiteData.php',
     'App\\Models\\MainSite' => $baseDir . '/app/Models/MainSite.php',
     'App\\Models\\Navigation' => $baseDir . '/app/Models/Navigation.php',

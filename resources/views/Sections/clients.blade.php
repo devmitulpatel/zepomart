@@ -8,42 +8,7 @@
                 <!--/column -->
                 <div class="col-lg-5 mt-lg-12">
                     <div class="basic-slider owl-carousel gap-small" data-margin="30">
-                        <div class="item">
-                            <blockquote class="icon icon-top fs-lg text-center">
-                                <p>“Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Vestibulum ligula porta felis euismod semper. Cras justo odio consectetur.”</p>
-                                <div class="blockquote-details justify-content-center text-center">
-                                    <div class="info ps-0">
-                                        <h5 class="mb-1">Coriss Ambady</h5>
-                                        <p class="mb-0">Financial Analyst</p>
-                                    </div>
-                                </div>
-                            </blockquote>
-                        </div>
-                        <!-- /.item -->
-                        <div class="item">
-                            <blockquote class="icon icon-top fs-lg text-center">
-                                <p>“Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Vestibulum ligula porta felis euismod semper. Cras justo odio consectetur.”</p>
-                                <div class="blockquote-details justify-content-center text-center">
-                                    <div class="info ps-0">
-                                        <h5 class="mb-1">Cory Zamora</h5>
-                                        <p class="mb-0">Marketing Specialist</p>
-                                    </div>
-                                </div>
-                            </blockquote>
-                        </div>
-                        <!-- /.item -->
-                        <div class="item">
-                            <blockquote class="icon icon-top fs-lg text-center">
-                                <p>“Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Vestibulum ligula porta felis euismod semper. Cras justo odio consectetur.”</p>
-                                <div class="blockquote-details justify-content-center text-center">
-                                    <div class="info ps-0">
-                                        <h5 class="mb-1">Nikolas Brooten</h5>
-                                        <p class="mb-0">Sales Manager</p>
-                                    </div>
-                                </div>
-                            </blockquote>
-                        </div>
-                        <!-- /.item -->
+                        @include('Sections.client-partial')
                     </div>
                     <!-- /.owl-carousel -->
                 </div>
