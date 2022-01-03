@@ -1,5 +1,20 @@
 <?php
 
-use App\Models\SeoPlan;
+use App\Models\PackagePlans;
+use Illuminate\Database\Eloquent\Builder;
 
-dd(SeoPlan::with(['features'])->get()->first()->features);
+$slug='seo-packages';
+$data= PackagePlans::whereHas('type',function (Builder $query)use ($slug) {
+    $query->where('slug', $slug);
+})->get()->first();
+
+
+dd(PackagePlans::first()->whereHas('type',function (Builder $query)use($slug){
+    $query->where('slug',$slug);
+})->count());
+
+
+
+
+
+dd($model->features);

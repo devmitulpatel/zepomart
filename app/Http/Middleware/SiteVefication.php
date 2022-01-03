@@ -18,8 +18,19 @@ class SiteVefication
     {
 
 
+        $allowedDomains=[
 
-        check_valid_domain();
+            'customerform.crowdtize.test',
+            'customerform.crowdtize.com'
+        ];
+
+        if(in_array($request->getHost(),$allowedDomains)){
+
+        }else{
+            check_valid_domain();
+        }
+
+
 
         return $next($request);
     }

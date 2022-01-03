@@ -15,7 +15,7 @@
         <!-- /.container -->
     </section>
     <!-- /section -->
-    <section class="wrapper" v-cloak id="pricing-vue-component" api-url="{{route('packages',['slug'=>'ecommerce-marketing'])}}" inline-template>
+    <section class="wrapper" v-cloak id="pricing-vue-component" api-url="{{route('packages')}}" inline-template>
         <div class="container pb-14 pb-md-16">
             <div class="pricing-wrapper position-relative mt-n18 mt-md-n21 mb-12 mb-md-15">
                 <div class="shape bg-dot primary rellax w-16 h-18" data-rellax-speed="1"
@@ -41,7 +41,7 @@
                                 <img src="{{asset('assets/img/icons/lineal/plan.svg')}}"
                                      class="icon-svg icon-svg-md text-primary mb-3" alt=""/>
                                 <h4 class="card-title ">@{{ plan.name }}
-                                    <br>
+                                <br>
                                     <small class="card-text ">@{{ plan.description }}</small>
                                 </h4>
 
@@ -73,8 +73,8 @@
 
                                         <i  :class="{
                                         'uil sub-feature-icon':true,
-                                        'uil-check':feature.pivot.status,
-                                        'uil-times bullet-soft-red':!feature.pivot.status
+                                        'uil-check':feature.status,
+                                        'uil-times bullet-soft-red':!feature.status
                                         }"></i>
                                         @{{ feature.name }}
                                     </li>
@@ -94,110 +94,6 @@
                         <!--/.pricing -->
                     </div>
 
-                    @if(false)
-                        <div class="col-md-6 col-lg-4">
-                            <div class="pricing card text-center">
-                                <div class="card-body">
-                                    <img src="assets/img/icons/lineal/shopping-basket.svg"
-                                         class="svg-inject icon-svg icon-svg-md text-primary mb-3" alt=""/>
-                                    <h4 class="card-title">Basic Plan</h4>
-                                    <div class="prices text-dark">
-                                        <div class="price price-show"><span class="price-currency">$</span><span
-                                                class="price-value">9</span> <span class="price-duration">month</span>
-                                        </div>
-                                        <div class="price price-hide price-hidden"><span class="price-currency">$</span><span
-                                                class="price-value">99</span> <span class="price-duration">year</span>
-                                        </div>
-                                    </div>
-                                    <!--/.prices -->
-                                    <ul class="icon-list bullet-bg bullet-soft-primary mt-8 mb-9 text-start">
-                                        <li><i class="uil uil-check"></i><span><strong>1</strong> Project </span></li>
-                                        <li><i class="uil uil-check"></i><span><strong>100K</strong> API Access </span>
-                                        </li>
-                                        <li><i class="uil uil-check"></i><span><strong>100MB</strong> Storage </span>
-                                        </li>
-                                        <li>
-                                            <i class="uil uil-times bullet-soft-red"></i><span> Weekly <strong>Reports</strong> </span>
-                                        </li>
-                                        <li>
-                                            <i class="uil uil-times bullet-soft-red"></i><span> 7/24 <strong>Support</strong></span>
-                                        </li>
-                                    </ul>
-                                    <a href="#" class="btn btn-primary rounded-pill">Choose Plan</a>
-                                </div>
-                                <!--/.card-body -->
-                            </div>
-                            <!--/.pricing -->
-                        </div>
-                        <!--/column -->
-                        <div class="col-md-6 col-lg-4 popular">
-                            <div class="pricing card text-center">
-                                <div class="card-body">
-                                    <img src="assets/img/icons/lineal/home.svg"
-                                         class="svg-inject icon-svg icon-svg-md text-primary mb-3" alt=""/>
-                                    <h4 class="card-title">Premium Plan</h4>
-                                    <div class="prices text-dark">
-                                        <div class="price price-show"><span class="price-currency">$</span><span
-                                                class="price-value">19</span> <span class="price-duration">month</span>
-                                        </div>
-                                        <div class="price price-hide price-hidden"><span class="price-currency">$</span><span
-                                                class="price-value">199</span> <span class="price-duration">year</span>
-                                        </div>
-                                    </div>
-                                    <!--/.prices -->
-                                    <ul class="icon-list bullet-bg bullet-soft-primary mt-8 mb-9 text-start">
-                                        <li><i class="uil uil-check"></i><span><strong>5</strong> Projects </span></li>
-                                        <li><i class="uil uil-check"></i><span><strong>100K</strong> API Access </span>
-                                        </li>
-                                        <li><i class="uil uil-check"></i><span><strong>200MB</strong> Storage </span>
-                                        </li>
-                                        <li><i class="uil uil-check"></i><span> Weekly <strong>Reports</strong></span>
-                                        </li>
-                                        <li>
-                                            <i class="uil uil-times bullet-soft-red"></i><span> 7/24 <strong>Support</strong></span>
-                                        </li>
-                                    </ul>
-                                    <a href="#" class="btn btn-primary rounded-pill">Choose Plan</a>
-                                </div>
-                                <!--/.card-body -->
-                            </div>
-                            <!--/.pricing -->
-                        </div>
-                        <!--/column -->
-                        <div class="col-md-6 offset-md-3 col-lg-4 offset-lg-0">
-                            <div class="pricing card text-center">
-                                <div class="card-body">
-                                    <img src="assets/img/icons/lineal/briefcase-2.svg"
-                                         class="svg-inject icon-svg icon-svg-md text-primary mb-3" alt=""/>
-                                    <h4 class="card-title">Corporate Plan</h4>
-                                    <div class="prices text-dark">
-                                        <div class="price price-show"><span class="price-currency">$</span><span
-                                                class="price-value">49</span> <span class="price-duration">month</span>
-                                        </div>
-                                        <div class="price price-hide price-hidden"><span class="price-currency">$</span><span
-                                                class="price-value">499</span> <span class="price-duration">year</span>
-                                        </div>
-                                    </div>
-                                    <!--/.prices -->
-                                    <ul class="icon-list bullet-bg bullet-soft-primary mt-8 mb-9 text-start">
-                                        <li><i class="uil uil-check"></i><span><strong>20</strong> Projects </span></li>
-                                        <li><i class="uil uil-check"></i><span><strong>300K</strong> API Access </span>
-                                        </li>
-                                        <li><i class="uil uil-check"></i><span><strong>500MB</strong> Storage </span>
-                                        </li>
-                                        <li><i class="uil uil-check"></i><span> Weekly <strong>Reports</strong></span>
-                                        </li>
-                                        <li><i class="uil uil-check"></i><span> 7/24 <strong>Support</strong></span>
-                                        </li>
-                                    </ul>
-                                    <a href="#" class="btn btn-primary rounded-pill">Choose Plan</a>
-                                </div>
-                                <!--/.card-body -->
-                            </div>
-                            <!--/.pricing -->
-                        </div>
-                        <!--/column -->
-                    @endif
                 </div>
                 <!--/.row -->
             </div>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Crowdtize\User;
 use App\Http\Controllers\StaticPageController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,12 +20,53 @@ use Illuminate\Support\Facades\Route;
 //});
 
 
-Route::view('/','Pages.home')->name('home');
-Route::view('/contact-us','Pages.contact-us')->name('contact-us');
-Route::view('/about-us','Pages.about-us')->name('about-us');
-Route::view('/blog','Pages.about-us')->name('blog');
+$zepomartTestWebsite='zepomart.test';
+$zepomartProductionWebsite='zepomart.com';
+$crowdtizeTestWebsite='customerform.crowdtize.test';
+$crowdtizeProductionWebsite='customerform.crowdtize.com';
 
-Route::get('/page/{slug?}',[StaticPageController::class,'defaultFallback']);
-Route::view('/seo-packages','Pages.seo-packages')->name('seo-packages');
-Route::view('/ecommerce-marketing-packages','Pages.ecommerce-marketing-packages')->name('ecommerce-marketing-packages');
+$zepoMartWebsiteRoutes=function (){
 
+    Route::view('/','Pages.home')->name('home');
+    Route::view('/contact-us','Pages.contact-us')->name('contact-us');
+    Route::view('/about-us','Pages.about-us')->name('about-us');
+    Route::view('/blog','Pages.about-us')->name('blog');
+
+    Route::get('/page/{slug?}',[StaticPageController::class,'defaultFallback']);
+    Route::view('/seo-packages','Pages.seo-packages_new')->name('seo-packages');
+    Route::view('/ecommerce-marketing-packages','Pages.ecommerce-marketing-packages')->name('ecommerce-marketing-packages');
+
+
+};
+$crowdtizeWebsiteRoutes=function (){
+
+    Route::view('/','Crowdtize.form');
+    Route::resource('/Users', User::class)->only(['create']);
+    Route::fallback(function (){
+
+        return view('errors.404_crowdtize',[],[],404);
+    });
+
+};
+
+
+Route::group(['domain' => $zepomartProductionWebsite], function()use ($zepoMartWebsiteRoutes)
+{
+$zepoMartWebsiteRoutes();
+
+});Route::group(['domain' => $zepomartTestWebsite], function()use ($zepoMartWebsiteRoutes)
+{
+$zepoMartWebsiteRoutes();
+
+});
+
+Route::group(['domain' => $crowdtizeTestWebsite], function()use ($crowdtizeWebsiteRoutes)
+{
+    $crowdtizeWebsiteRoutes();
+
+});
+Route::group(['domain' => $crowdtizeProductionWebsite], function()use ($crowdtizeWebsiteRoutes)
+{
+    $crowdtizeWebsiteRoutes();
+
+});

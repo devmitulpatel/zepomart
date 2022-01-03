@@ -14,6 +14,19 @@ if(!function_exists('seed_model')){
 }
 
 
+if(!function_exists('able_model_schema')){
+    function able_model_schema($table,$related){
+        $type=implode('_',[$related,'type']);
+
+        $related=implode('_',[$related,'id']);
+
+        $table->id();
+        $table->unsignedBigInteger($related);
+        $table->string($type);
+        $table->boolean('status')->default(1);
+        $table->timestamps();
+    }
+}
 if(!function_exists('update_model')){
 
     function update_model($model){

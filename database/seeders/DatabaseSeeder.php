@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Categories;
 use App\Models\ClientFeedback;
 use App\Models\DynamicSiteData;
 use App\Models\PlanFeature;
@@ -28,10 +29,21 @@ class DatabaseSeeder extends Seeder
          $this->call(TableUpdateSeeder::class);
          $this->call(NavigationSeeder::class);
          $this->call(StaticPageSeeder::class);
-         $this->call(SeoPlanFeatureCatSeeder::class);
+         //$this->call(SeoPlanFeatureCatSeeder::class);
+         $this->call(CategoriesSeeder::class);
          $this->call(PlanFeatureSeeder::class);
          $this->call(SeoPlanSeeder::class);
          $this->call(ClientFeedbackSeeder::class);
+         $this->call(PackageTypeSeeder::class);
+         $this->call(PackagePlansSeeder::class);
+         $this->call(CostableSeeder::class);
+         $this->call(FeatureableSeeder::class);
+
+         ///
+        ///crowdtize
+
+        $this->call(SponsorSeeder::class);
+        $this->call(RegistredUserSeeder::class);
 
     }
 }
