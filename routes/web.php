@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 
 
 $zepomartTestWebsite='zepomart.test';
-$zepomartProductionWebsite='zepomart.com';
+$zepomartProductionWebsite='www.zepomart.com';
 $crowdtizeTestWebsite='customerform.crowdtize.test';
 $crowdtizeProductionWebsite='userform.crowdtize.com';
 
