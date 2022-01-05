@@ -17,7 +17,7 @@ class CreateRegistredUsersTable extends Migration
             $table->id();
             $table->unsignedBigInteger('sponsor_id');
             $table->string('name');
-            $table->string('ref_code');
+            $table->string('ref_code')->nullable();
             $table->string('city')->nullable();
             $table->string('state')->nullable();
             $table->string('area')->nullable();

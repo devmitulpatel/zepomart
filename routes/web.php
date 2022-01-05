@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Crowdtize\PageContoller;
 use App\Http\Controllers\Crowdtize\User;
 use App\Http\Controllers\StaticPageController;
 use Illuminate\Support\Facades\Route;
@@ -23,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 $zepomartTestWebsite='zepomart.test';
 $zepomartProductionWebsite='zepomart.com';
 $crowdtizeTestWebsite='customerform.crowdtize.test';
-$crowdtizeProductionWebsite='customerform.crowdtize.com';
+$crowdtizeProductionWebsite='userform.crowdtize.com';
 
 $zepoMartWebsiteRoutes=function (){
 
@@ -41,28 +42,36 @@ $zepoMartWebsiteRoutes=function (){
 $crowdtizeWebsiteRoutes=function (){
 
     Route::view('/','Crowdtize.form');
-    Route::resource('/Users', User::class)->only(['create']);
-    Route::fallback(function (){
 
+    Route::post('api/users/create', [User::class,'store'])->name('Users.create');
+    Route::view('export','Crowdtize.export')->name('Users.export.page');
+    Route::get('export/file', [PageContoller::class,'export'])->name('Users.export');
+    Route::view('terms-and-condition', 'Crowdtize.termsncondition')->name('terms.n.conditions');
+    Route::fallback(function (){
         return view('errors.404_crowdtize',[],[],404);
     });
 
 };
 
 
+
+
+//Route::group(['domain' => $zepomartTestWebsite], function()use ($zepoMartWebsiteRoutes)
+//{
+//$zepoMartWebsiteRoutes();
+//
+//});
+//
+//Route::group(['domain' => $crowdtizeTestWebsite], function()use ($crowdtizeWebsiteRoutes)
+//{
+//    $crowdtizeWebsiteRoutes();
+//
+//});
+
+
 Route::group(['domain' => $zepomartProductionWebsite], function()use ($zepoMartWebsiteRoutes)
 {
 $zepoMartWebsiteRoutes();
-
-});Route::group(['domain' => $zepomartTestWebsite], function()use ($zepoMartWebsiteRoutes)
-{
-$zepoMartWebsiteRoutes();
-
-});
-
-Route::group(['domain' => $crowdtizeTestWebsite], function()use ($crowdtizeWebsiteRoutes)
-{
-    $crowdtizeWebsiteRoutes();
 
 });
 Route::group(['domain' => $crowdtizeProductionWebsite], function()use ($crowdtizeWebsiteRoutes)

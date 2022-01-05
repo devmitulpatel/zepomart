@@ -44,6 +44,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call(SponsorSeeder::class);
         $this->call(RegistredUserSeeder::class);
+        $this->call(TermNConditionSeeder::class);
 
     }
 }

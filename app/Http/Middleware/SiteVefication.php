@@ -21,7 +21,7 @@ class SiteVefication
         $allowedDomains=[
 
             'customerform.crowdtize.test',
-            'customerform.crowdtize.com'
+            'userform.crowdtize.com'
         ];
 
         if(in_array($request->getHost(),$allowedDomains)){

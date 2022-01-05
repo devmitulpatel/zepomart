@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Crowdtize;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Crowdtize\MakeUserPostRequest;
 use Illuminate\Http\Request;
 
 class User extends Controller
@@ -23,9 +24,9 @@ class User extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MakeUserPostRequest $request)
     {
-        //
+        return  $request->presist();
     }
 
     /**

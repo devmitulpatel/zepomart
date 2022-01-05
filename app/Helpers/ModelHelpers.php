@@ -2,6 +2,7 @@
 
 
 use App\Models\TableUpdate;
+use Illuminate\Database\Schema\Blueprint;
 
 if(!function_exists('seed_model')){
 
@@ -15,7 +16,7 @@ if(!function_exists('seed_model')){
 
 
 if(!function_exists('able_model_schema')){
-    function able_model_schema($table,$related){
+    function able_model_schema(Blueprint $table,$related){
         $type=implode('_',[$related,'type']);
 
         $related=implode('_',[$related,'id']);
@@ -27,6 +28,18 @@ if(!function_exists('able_model_schema')){
         $table->timestamps();
     }
 }
+if(!function_exists('simple_value_model_schema')){
+    function simple_value_model_schema(Blueprint $table){
+        $table->id();
+        $table->string('name')->nullable();
+        $table->string('slug')->nullable();
+        $table->longText('value')->nullable();
+        $table->unsignedBigInteger('sort')->default(0);
+        $table->boolean('status')->default(1);
+        $table->timestamps();
+    }
+}
+
 if(!function_exists('update_model')){
 
     function update_model($model){
