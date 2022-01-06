@@ -171,7 +171,7 @@ let crowdtizeRegistrationFrom={
             return this.payment_gateway?.length==1;
         },
         isValidGender(){
-            return this.gender?.lengt>1;
+            return this.gender?.length>1;
         }
     }
 }
