@@ -104,10 +104,10 @@
                             </label>
                             <div class="flex ">
                                 <label class="inline-flex items-center mt-3 mr-2 cursor-pointer">
-                                    <input v-model="gender" type="radio" class="form-radio h-5 w-5 text-gray-600" value="female"><span class="ml-2 text-gray-700">Male</span>
+                                    <input name="gener" v-model="gender" type="radio" class="form-radio h-5 w-5 text-gray-600" value="male" :checked="(gender=='male')"><span class="ml-2 text-gray-700">Male</span>
                                 </label>
                                 <label class="inline-flex items-center mt-3 cursor-pointer">
-                                    <input v-model="gender" type="radio" class="form-radio h-5 w-5 text-gray-600" value="male"><span class="ml-2 text-gray-700">Female</span>
+                                    <input name="gener" v-model="gender" type="radio" class="form-radio h-5 w-5 text-gray-600" value="female" :checked="(gender=='female')"><span class="ml-2 text-gray-700">Female</span>
                                 </label>
                             </div>
                         </div>

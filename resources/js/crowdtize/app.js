@@ -22,7 +22,7 @@ let crowdtizeRegistrationFrom={
             termsaccepted:null,
             api_url:null,
             birthdate:null,
-            gender:null,
+            gender:'male',
             format: "dd/MM/yyyy",
             error:[],
             errorMessage:'',
@@ -113,7 +113,8 @@ let crowdtizeRegistrationFrom={
             console.log('gateway',this.isValidPaymentGateway())
             console.log('whatsapp number',this.isValidWhatsappNumber())
             console.log('payment number',this.isValidPaymentNumber())
-            return this.isValidSponsorId() && this.isValidName() && this.isValidCity()  && this.isValidState() && this.isValidArea() && this.isValidPaymentGateway() && this.isValidWhatsappNumber() && this.isValidPaymentNumber()
+            console.log('gender',this.isValidGender())
+            return this.isValidSponsorId() && this.isValidName() && this.isValidCity()  && this.isValidState() && this.isValidArea() && this.isValidPaymentGateway() && this.isValidWhatsappNumber() && this.isValidPaymentNumber() && this.isValidGender()
         },
         apiCall(){
             this.errorMessage="";
@@ -168,6 +169,9 @@ let crowdtizeRegistrationFrom={
         isValidPaymentGateway() {
 
             return this.payment_gateway?.length==1;
+        },
+        isValidGender(){
+            return this.gender?.lengt>1;
         }
     }
 }

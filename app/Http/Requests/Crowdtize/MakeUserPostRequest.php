@@ -34,7 +34,7 @@ class MakeUserPostRequest extends FormRequest
     {
         return [
             'name'=>['required'],
-            'sponsor_id'=>['required'],
+            'sponsor_id'=>['required','exists:App\Models\Crowdtize\Sponsor,slug'],
             'city'=>['required'],
             'state'=>['required'],
             'area'=>['required'],
