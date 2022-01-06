@@ -6,3 +6,5 @@ sudo chmod -R 777 /var/www/zepomart_website/storage
 sudo chmod -R 777 /var/www/zepomart_website/bootstrap/cache
 
 
+
+sudo /var/www/runUpdate.sh

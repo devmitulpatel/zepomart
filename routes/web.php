@@ -4,6 +4,7 @@ use App\Http\Controllers\Crowdtize\PageContoller;
 use App\Http\Controllers\Crowdtize\User;
 use App\Http\Controllers\StaticPageController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -56,26 +57,35 @@ $crowdtizeWebsiteRoutes=function (){
 
 
 
-//Route::group(['domain' => $zepomartTestWebsite], function()use ($zepoMartWebsiteRoutes)
+Route::group(['domain' => $zepomartTestWebsite], function()use ($zepoMartWebsiteRoutes)
+{
+$zepoMartWebsiteRoutes();
+
+});
+
+Route::group(['domain' => $crowdtizeTestWebsite], function()use ($crowdtizeWebsiteRoutes)
+{
+    $crowdtizeWebsiteRoutes();
+
+});
+
+//
+//Route::group(['domain' => $zepomartProductionWebsite], function()use ($zepoMartWebsiteRoutes)
 //{
 //$zepoMartWebsiteRoutes();
 //
 //});
-//
-//Route::group(['domain' => $crowdtizeTestWebsite], function()use ($crowdtizeWebsiteRoutes)
+//Route::group(['domain' => $crowdtizeProductionWebsite], function()use ($crowdtizeWebsiteRoutes)
 //{
 //    $crowdtizeWebsiteRoutes();
 //
 //});
 
+Route::get('/debug/export/db',function (){
 
-Route::group(['domain' => $zepomartProductionWebsite], function()use ($zepoMartWebsiteRoutes)
-{
-$zepoMartWebsiteRoutes();
+    $name=implode('_',['zepomart',now()->format('d_m_y')]);
 
-});
-Route::group(['domain' => $crowdtizeProductionWebsite], function()use ($crowdtizeWebsiteRoutes)
-{
-    $crowdtizeWebsiteRoutes();
+    return Storage::download('file.jpg',$name);
+
 
 });

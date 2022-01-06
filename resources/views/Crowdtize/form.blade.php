@@ -14,8 +14,8 @@
 
 <div class="flex flex-col min-h-screen bg-gray-100 " api-url="{{route('Users.create')}}" id="crowdtize-registration-from-component" inline-template>
 
-    <div class="flex items-center justify-center pt-5 grow  ">
-        <div class="containter mx-auto px-20">
+    <div class="flex-1  pt-5 grow  ">
+        <div class="container mx-auto">
             <div class="bg-white p-8 rounded-lg shadow-lg relative hover:shadow-2xl transition duration-500">
                 <h1 class="text-2xl text-gray-800 font-semibold mb-3">Registration Form For User</h1>
                 <p class="text-gray-600 leading-6 tracking-normal pb-5">Crowdtize User Form </p>
@@ -67,7 +67,7 @@
                     </div>
                 </div>
 
-                <form v-if="successMessage.length<1" class="pt-5 w-full max-w-lg" action="{{route('Users.create')}}" method="post">
+                <form v-if="successMessage.length<1" class="pt-5 w-full" action="{{route('Users.create')}}" method="post">
                     <div class="flex flex-wrap -mx-3 mb-3">
                         <div class="w-full px-3 mb-3">
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
@@ -112,7 +112,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="flex flex-row flex-wrap -mx-3 mb-6">
                         <div class="w-full sm:w-full md:w-1/3 px-3 mb-6 md:mb-0">
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-city">
                                 City
@@ -134,7 +134,7 @@
                     </div>
 
                     <div class="flex flex-wrap -mx-3 mb-6">
-                        <div class="w-full sm:w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                        <div class="md:w-1/2 sm:w-full px-3 mb-6 md:mb-0">
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-city">
                                 Payment Getway
                             </label>
@@ -150,7 +150,7 @@
                             </div>
 
                         </div>
-                        <div class="w-full sm:w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                        <div class="sm:w-full md:w-1/2 sm:w-full px-3 mb-6 md:mb-0">
                             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
                                 Mobile Number For Payment
                             </label>
