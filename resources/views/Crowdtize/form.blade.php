@@ -4,7 +4,8 @@
     <title>
         Crowdtize
     </title>
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{asset('crowdtize/css/app.css')}}?{{get_css_js_version()}}{{date('s')}}"  >
     <link rel="stylesheet" href="{{asset('crowdtize/css/datepicker.css')}}?{{get_css_js_version()}}"  >
     <meta name="csrf-token" content="{{ csrf_token() }}">
