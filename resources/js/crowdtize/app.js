@@ -5,6 +5,8 @@ const axios = require("axios");
 import Datepicker from 'vue3-date-time-picker';
 import { ref } from 'vue';
 
+import 'bootstrap';
+
 
 let crowdtizeRegistrationFrom={
     name:'crowdtize-registration-from-component',
@@ -144,6 +146,14 @@ let crowdtizeRegistrationFrom={
             this.errorMessage=e.response.data.message;
             this.error=e.response.data.errors;
 
+        },
+
+        isValidFromError(name){
+
+            let result= this.error.hasOwnProperty(name)
+
+            let localResult=this.isValidSponsorId();
+            return  result;
         },
         isValidSponsorId() {
             return this.sponsor_id?.length>3

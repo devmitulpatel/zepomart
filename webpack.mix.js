@@ -32,8 +32,10 @@ mix
     .js('resources/js/crowdtize/app.js', 'public/crowdtize/js')
     //  .postCss('resources/css/_template.css', 'public/css', [])
     .sass('resources/css/crowdtize/datepicker.scss','public/crowdtize/css')
-.postCss("resources/css/crowdtize/app.css", "public/crowdtize/css", [
-    require("tailwindcss"),
-]).sourceMaps()
+    .sass('resources/css/crowdtize/app.scss','public/crowdtize/css')
+// .postCss("resources/css/crowdtize/app.css", "public/crowdtize/css", [
+//     require("tailwindcss"),
+// ])
+    .sourceMaps()
 
 mix.disableNotifications();

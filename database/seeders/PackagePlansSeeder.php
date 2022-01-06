@@ -46,6 +46,7 @@ class PackagePlansSeeder extends Seeder
     }
 
     public function afterAll(){
+
         foreach ($this->model::all()  as $plan   ){
 
 

@@ -24,9 +24,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/packages/{slug?}',function ($slug='seo-packages'){
 
-    $data= PackagePlans::whereHas('type',function (Builder $query)use($slug){
+    $data= PackagePlans::with(['features'])->whereHas('type',function (Builder $query)use($slug){
         $query->where('slug',$slug);
-    })->get()->load(['features']);
+    })->get();
+
+    dd($data->toArray());
 
     goto finalOutput;
 

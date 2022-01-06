@@ -22,10 +22,11 @@ trait HasFeature
         $feature->type=$type;
         $feature->slug=Str::slug($name);
         //dd($this->features()->save($feature));
-        $type=new Categorizable();
-        $feature->name="demo";
-        $feature->type=$type;
+//        $type=new Categorizable();
+//        $feature->name="demo";
+//        $feature->type=$type;
 
+        $this->features()->save($feature);
         return $feature;
     }
 
