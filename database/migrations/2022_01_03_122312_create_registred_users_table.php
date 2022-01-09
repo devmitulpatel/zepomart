@@ -16,7 +16,8 @@ class CreateRegistredUsersTable extends Migration
         Schema::create('registred_users', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('sponsor_id');
-            $table->string('name');
+            $table->string('first_name');
+            $table->string('last_name');
             $table->string('ref_code')->nullable();
             $table->string('city')->nullable();
             $table->string('state')->nullable();

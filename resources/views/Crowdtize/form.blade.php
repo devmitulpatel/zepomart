@@ -18,59 +18,13 @@
     <div class="  ">
         <div class="container-fluid">
 
-            <div class="card mt-2">
+            <div class="card mt-2"  v-if="successMessage.length<1">
                 <div class="card-header">
                     <h1 class="">Registration Form For User</h1>
                     <p class="">Crowdtize User Form </p>
                 </div>
                 <div class="card-body">
-
-                    <div v-if="errorMessage.length>1 && false" class="bg-gradient-reverse-aqua" v-cloak>
-                        <div role="alert">
-                            <div class="bg-red-500 text-white font-bold rounded-t px-4 py-2">
-                                @{{ errorMessage }}
-                            </div>
-                            <div class="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
-                                <ul>
-                                    <li v-for="er in error">
-                                        <span v-for="e in er">@{{ e }} <br></span>
-
-
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div v-if="successMessage.length>1" class="bg-gradient-reverse-aqua" v-cloak>
-                        <div role="alert">
-                            <div class="bg-green-500 text-white font-bold rounded-t px-4 py-2">
-                                @{{ successMessage }}
-                            </div>
-                            <div class="border border-t-0 border-green-400 rounded-b bg-green-100 px-4 py-3 text-green-700">
-                                <ul>
-                                    <li >
-                                        Name: @{{ createdUser.name }}
-                                    </li>
-                                    <li >
-                                        Membership No: @{{ createdUser.ref_code }}
-                                    </li>
-                                    <li >
-                                        Payment Mode: @{{ createdUser.payment_gateway }}
-                                    </li>
-                                    <li >
-                                        Payment No: @{{ createdUser.mobile_no_payment }}
-                                    </li>
-                                    <li >
-                                        Whatsapp No: @{{ createdUser.mobile_no_whatsapp }}
-                                    </li>
-                                </ul>
-                                <div class="w-100 mt-3 p-2 border rounded bg-blue-200 text-center cursor-pointer" v-on:click="resetUserForm">
-                                    Create another User
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <form v-if="successMessage.length<1" class="pt-5 w-full"  method="post">
+                    <form class="pt-3 w-full"  method="post">
 
                         <div class="mb-3 row has-validation">
                                 <label for="sponsor_id" class="  col-sm-12 col-md-12 col-lg-2 col-form-label">Sponsor ID</label>
@@ -80,7 +34,6 @@
                                         <span  v-for="er in error.sponsor_id">
                                             @{{ er }}
                                         </span>
-
                                     </div>
                                 </div>
 
@@ -88,11 +41,27 @@
 
                             </div>
                         <div class="mb-3 row has-validation">
-                                <label for="sponsor_id" class="  col-sm-12 col-md-12 col-lg-2 col-form-label">Full Name</label>
+                                <label for="first_name" class="  col-sm-12 col-md-12 col-lg-2 col-form-label">First Name</label>
                                 <div class=" col-sm-12 col-md-12 col-lg-10 ">
-                                    <input :class="{'is-invalid':isValidFromError('name')}" type="name" aria-describedby="name_error" v-model="name" class="form-control" id="name" placeholder="Write your name here">
-                                    <div id="name_error" class="invalid-feedback">
-                                        @{{ error.name  }}
+                                    <input :class="{'is-invalid':isValidFromError('first_name')}" type="text" aria-describedby="first_name_error" v-model="first_name" class="form-control" id="first_name" placeholder="Write your First name here">
+                                    <div id="first_name_error" class="invalid-feedback">
+                                        <span  v-for="er in error.first_name">
+                                            @{{ er }}
+                                        </span>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        <div class="mb-3 row has-validation">
+                                <label for="last_name" class="  col-sm-12 col-md-12 col-lg-2 col-form-label">Last Name</label>
+                                <div class=" col-sm-12 col-md-12 col-lg-10 ">
+                                    <input :class="{'is-invalid':isValidFromError('last_name')}" type="text" aria-describedby="last_name_error" v-model="last_name" class="form-control" id="last_name" placeholder="Write your Last name here">
+                                    <div id="last_name_error" class="invalid-feedback">
+                                        <span  v-for="er in error.last_name">
+                                            @{{ er }}
+                                        </span>
                                     </div>
                                 </div>
 
@@ -134,7 +103,9 @@
                             <div class=" col-sm-12 col-md-12 col-lg-10 ">
                                 <input :class="{'is-invalid':isValidFromError('city')}" type="text" aria-describedby="city_error" v-model="city" class="form-control" id="city" placeholder="City">
                                 <div id="city_error" class="invalid-feedback">
-                                    @{{ error.city  }}
+                                        <span  v-for="er in error.city">
+                                            @{{ er }}
+                                        </span>
                                 </div>
                             </div>
 
@@ -146,8 +117,11 @@
                             <div class=" col-sm-12 col-md-12 col-lg-10 ">
                                 <input :class="{'is-invalid':isValidFromError('state')}" type="text" aria-describedby="state_error" v-model="state" class="form-control" id="state" placeholder="State">
                                 <div id="state_error" class="invalid-feedback">
-                                    @{{ error.state  }}
+                                        <span  v-for="er in error.state">
+                                            @{{ er }}
+                                        </span>
                                 </div>
+
                             </div>
 
 
@@ -158,7 +132,9 @@
                             <div class=" col-sm-12 col-md-12 col-lg-10 ">
                                 <input :class="{'is-invalid':isValidFromError('area')}" type="text" aria-describedby="area_error" v-model="area" class="form-control" id="area" placeholder="Area">
                                 <div id="area_error" class="invalid-feedback">
-                                    @{{ error.area  }}
+                                        <span  v-for="er in error.area">
+                                            @{{ er }}
+                                        </span>
                                 </div>
                             </div>
 
@@ -169,12 +145,12 @@
                             <label for="sponsor_id" class="  col-sm-12 col-md-12 col-lg-2 col-form-label">Payment Gateway</label>
                             <div class=" col-sm-12 col-md-12 col-lg-10 ">
                                 <select v-model="payment_gateway" :class="{'is-invalid':isValidFromError('payment_gateway')}" aria-describedby="payment_gateway_error" class="form-select" >
-                                    <option value="1" :selected="payment_gateway==1">Phone Pay</option>
-                                    <option value="2"  :selected="payment_gateway==2">Google Pay</option>
-                                    <option value="3"   :selected="payment_gateway==3">Paytm</option>
+                                    <option v-for="op in payment_gateway_option" :value="op.value" :selected="payment_gateway==op.value">@{{ op.name }}</option>
                                 </select>
                                 <div id="payment_gateway_error" class="invalid-feedback">
-                                    @{{ error.payment_gateway  }}
+                                        <span  v-for="er in error.payment_gateway">
+                                            @{{ er }}
+                                        </span>
                                 </div>
                             </div>
 
@@ -186,7 +162,9 @@
                             <div class=" col-sm-12 col-md-12 col-lg-10 ">
                                 <input :class="{'is-invalid':isValidFromError('mobile_no_payment')}" type="number" aria-describedby="mobile_no_payment_error" v-model="mobile_no_payment" class="form-control" id="mobile_no_payment" placeholder="Payment Mobile Number">
                                 <div id="mobile_no_payment_error" class="invalid-feedback">
-                                    @{{ error.mobile_no_payment  }}
+                                        <span  v-for="er in error.mobile_no_payment">
+                                            @{{ er }}
+                                        </span>
                                 </div>
                             </div>
 
@@ -198,7 +176,9 @@
                             <div class=" col-sm-12 col-md-12 col-lg-10 ">
                                 <input :class="{'is-invalid':isValidFromError('mobile_no_whatsapp')}" type="number" aria-describedby="mobile_no_whatsapp_error" v-model="mobile_no_whatsapp" class="form-control" id="mobile_no_whatsapp" placeholder="WhatsApp Number">
                                 <div id="mobile_no_whatsapp_error" class="invalid-feedback">
-                                    @{{ error.mobile_no_whatsapp  }}
+                                        <span  v-for="er in error.mobile_no_whatsapp">
+                                            @{{ er }}
+                                        </span>
                                 </div>
                             </div>
 
@@ -212,7 +192,7 @@
                                 <div class="form-check form-check-inline">
                                     <input class="form-check-input" type="checkbox" name="gender" v-model="termsaccepted"  id="termsaccepted" value="male" :checked="(gender=='male')">
                                     <label class="form-check-label" for="termsaccepted">
-                                        By signing up, you agree to the <a class="underline hover:overline " href="{{route('terms.n.conditions')}}" target="_blank">Terms of Service<a> and <a class="underline hover:overline " target="_blank" href="{{route('terms.n.conditions')}}">Privacy Policy</a>,including Cookie Use.
+                                        By signing up, you agree to the <a class="" href="{{route('terms.n.conditions')}}" target="_blank">Terms of Service</a> and <a class="underline hover:overline " target="_blank" href="{{route('terms.n.conditions')}}">Privacy Policy</a>,<includ></includ>ing Cookie Use.
                                     </label>
                                 </div>
 
@@ -248,6 +228,46 @@
             </div>
 
 
+            <div class="card mt-2" v-if="successMessage.length>1">
+                <div class="card-header">
+                    <h1 class="">Registered User Info</h1>
+                    <p>
+                        <small>@{{ successMessage }}</small>
+                    </p>
+                </div>
+                <div class="card-body">
+
+                    <div class="border border-t-0 border-green-400 rounded-b bg-green-100 px-4 py-3 text-green-700">
+                        <ul>
+                            <li >
+                                Name: @{{ createdUser.first_name }} @{{ createdUser.last_name }}
+                            </li>
+                            <li >
+                                Sponsor ID: <span class="text-uppercase">@{{ createdUser.ref_code }}</span>
+                            </li>
+                            <li >
+                                Payment Mode: @{{ getPaymentGatewayName(createdUser.payment_gateway) }}
+                            </li>
+                            <li >
+                                Payment No: @{{ createdUser.mobile_no_payment }}
+                            </li>
+                            <li >
+                                Whatsapp No: @{{ createdUser.mobile_no_whatsapp }}
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </div>
+
+                <div class="card-footer">
+
+                    <div class="d-grid gap-2">
+                        <div class="btn  btn-block btn-info" v-on:click="resetUserForm">Create another User</div>
+                    </div>
+                </div>
+
+            </div>
 
 
 

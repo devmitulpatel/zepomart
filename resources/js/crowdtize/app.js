@@ -12,28 +12,44 @@ let crowdtizeRegistrationFrom={
     name:'crowdtize-registration-from-component',
     data(){
         return {
-            sponsor_id:null,
-            name:null,
-            city:null,
-            state:null,
-            area:null,
-            payment_gateway:null,
-            mobile_no_payment:null,
-            mobile_no_whatsapp:null,
-            ref_code:null,
-            termsaccepted:null,
-            api_url:null,
-            birthdate:null,
-            gender:'male',
+            sponsor_id: null,
+            first_name: null,
+            last_name: null,
+            city: null,
+            state: null,
+            area: null,
+            payment_gateway: null,
+            mobile_no_payment: null,
+            mobile_no_whatsapp: null,
+            ref_code: null,
+            termsaccepted: null,
+            api_url: null,
+            birthdate: null,
+            gender: 'male',
             format: "dd/MM/yyyy",
-            error:[],
-            errorMessage:'',
-            successMessage:'',
-            createdUser:null
+            error: [],
+            errorMessage: '',
+            successMessage: '',
+            createdUser: null,
+            payment_gateway_option: [
+                {
+                    name: 'Phone Pay',
+                    value: 1
+                },
+                {
+                    name: 'Google Pay',
+                    value: 2
+                },
+                {
+                    name: 'Paytm',
+                    value: 3
+                },
 
-
-
+            ]
         }
+
+
+
     },
     mounted() {
         let mainDiv=document.getElementById('crowdtize-registration-from-component');
@@ -44,6 +60,12 @@ let crowdtizeRegistrationFrom={
 
     },
     methods:{
+
+        getPaymentGatewayName(v){
+            return this.payment_gateway_option.find((ar)=>{
+                return ar.value==v
+            }).name
+        },
         resetUserForm(){
 
             let data={
@@ -60,7 +82,8 @@ let crowdtizeRegistrationFrom={
         resetComp(){
           let data ={
               sponsor_id:null,
-              name:null,
+              first_name:null,
+              last_name:null,
               city:null,
               state:null,
               area:null,
@@ -125,7 +148,8 @@ let crowdtizeRegistrationFrom={
             this.createdUser=null;
             let form={
                 sponsor_id :this.sponsor_id ,
-                name:this.name,
+                first_name:this.first_name,
+                last_name:this.last_name,
                 city:this.city,
                 state:this.state,
                 area:this.area,
@@ -159,7 +183,7 @@ let crowdtizeRegistrationFrom={
             return this.sponsor_id?.length>3
         },
         isValidName() {
-            return this.name?.length>3
+            return this.first_name?.length>3 && this.last_name?.length>3
         },
         isValidCity() {
             return this.city?.length>3
@@ -177,8 +201,7 @@ let crowdtizeRegistrationFrom={
             return this.mobile_no_whatsapp?.toString().length==10;
         },
         isValidPaymentGateway() {
-
-            return this.payment_gateway?.length==1;
+            return this.payment_gateway>0;
         },
         isValidGender(){
             return this.gender?.length>1;

@@ -59,6 +59,20 @@ class MainSiteSeeder extends Seeder
             'owner_id'=>1,
         ];
 
+//
+//        $data[]=[
+//            'name'=>'Test WebSite',
+//            'slug'=>Str::slug('Test WebSite'),
+//            'domain'=>'customerform.crowdtize.test',
+//            'owner_id'=>1,
+//        ];
+//
+//        $data[]=[
+//            'name'=>'Test WebSite',
+//            'slug'=>Str::slug('Test WebSite'),
+//            'domain'=>'userform.crowdtize.com',
+//            'owner_id'=>1,
+//        ];
 
 
     }

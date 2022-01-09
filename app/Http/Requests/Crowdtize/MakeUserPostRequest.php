@@ -4,7 +4,9 @@ namespace App\Http\Requests\Crowdtize;
 
 use App\Http\Resources\Crowdtize\RegistredUserResource;
 use App\Models\Crowdtize\RegistredUser;
+use App\Models\Crowdtize\Sponsor;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\ValidationException;
 
 class MakeUserPostRequest extends FormRequest
 {
@@ -33,8 +35,9 @@ class MakeUserPostRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>['required'],
-            'sponsor_id'=>['required','exists:App\Models\Crowdtize\Sponsor,slug'],
+            'first_name'=>['required'],
+            'last_name'=>['required'],
+            'sponsor_id'=>['required'],
             'city'=>['required'],
             'state'=>['required'],
             'area'=>['required'],
@@ -51,17 +54,38 @@ class MakeUserPostRequest extends FormRequest
 
 
         $input=$this->validated();
-        $model=new RegistredUser ();
-        foreach ($input as $k=>$v){
-            $model->$k=$v;
+        if(Sponsor::where('slug',$input['sponsor_id'])->count()>0 || RegistredUser::where('ref_code',$input['sponsor_id'])->count()>0 ){
+            $model=new RegistredUser ();
+
+            foreach ($input as $k=>$v){
+                $model->$k=$v;
+            }
+
+          //  if($input['sponsor_id']!='test1')dd($model);
+
+            $model->save();
+            //$model->ref_code=implode('',['CR',now()->year,str_pad($model->id, 4, "0", STR_PAD_LEFT)]);
+            $model->ref_code= $this->getNewRefCode();
+            $model->save();
+            return RegistredUserResource::make($model);
+        }else{
+            throw  ValidationException::withMessages(['sponsor_id' => ['Please enter valid Sponsor ID']]);
+
         }
 
-        $model->save();
-        //$model->ref_code=implode('',['CR',now()->year,str_pad($model->id, 4, "0", STR_PAD_LEFT)]);
-        $model->ref_code=implode('',['CR',str_pad($model->id, 4, "0", STR_PAD_LEFT)]);
-        $model->save();
-        return RegistredUserResource::make($model);
+    }
 
+    public function getNewRefCode(){
+        $ref_code=[];
+
+        $input=$this->validated();
+        $ref_code[]=substr(strtolower($input['first_name']), 0, 2);
+        $ref_code[]=substr(strtolower($input['last_name']), 0, 2);
+        $ref_code[]=now()->format('y');
+        $ref_code[]=substr(strtolower($input['city']), 0, 2);
+        $ref_code[]=substr(strtolower($input['state']), 0, 2);
+
+        return implode('',$ref_code);
     }
 
     public function messages()
