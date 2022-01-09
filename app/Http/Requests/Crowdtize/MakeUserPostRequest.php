@@ -54,6 +54,7 @@ class MakeUserPostRequest extends FormRequest
 
 
         $input=$this->validated();
+        $input['sponsor_id']=strtolower($input['sponsor_id']);
         if(Sponsor::where('slug',$input['sponsor_id'])->count()>0 || RegistredUser::where('ref_code',$input['sponsor_id'])->count()>0 ){
             $model=new RegistredUser ();
 
