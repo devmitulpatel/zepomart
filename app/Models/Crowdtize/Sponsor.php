@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Sponsor extends Model
 {
     use HasFactory;
+    protected $connection='sqlite_crowdtize';
+
 }

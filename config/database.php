@@ -46,6 +46,14 @@ return [
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
 
+        'sqlite_crowdtize' => [
+            'driver' => 'sqlite',
+            'url' => env('DATABASE_URL'),
+            'database' =>database_path('sqlite/crowdtize'),
+            'prefix' => '',
+            'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
+        ],
+
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),

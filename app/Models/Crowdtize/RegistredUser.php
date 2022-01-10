@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class RegistredUser extends Model
 {
     use HasFactory;
+    protected $connection='sqlite_crowdtize';
 }

@@ -86,7 +86,10 @@ class MakeUserPostRequest extends FormRequest
         $ref_code[]=substr(strtolower($input['city']), 0, 2);
         $ref_code[]=substr(strtolower($input['state']), 0, 2);
 
-        return implode('',$ref_code);
+        $ref_code=implode('',$ref_code);
+        $foundCount=RegistredUser::where('ref_code',$ref_code)->count();
+        if($foundCount>0)$ref_code=implode('',[$ref_code,$foundCount+1]);
+        return $ref_code;
     }
 
     public function messages()

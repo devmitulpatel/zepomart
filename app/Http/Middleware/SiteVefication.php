@@ -26,6 +26,8 @@ class SiteVefication
 
         if(in_array($request->getHost(),$allowedDomains)){
 
+
+
         }else{
             check_valid_domain();
         }

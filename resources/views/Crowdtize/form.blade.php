@@ -210,7 +210,7 @@
 
                 <div class="card-footer">
                     <div class="d-grid gap-2">
-                    <div class="btn  btn-block" v-on:click="submitForm"
+                    <div class="btn btn-primary text-black btn-block" v-on:click="submitForm"
 
                          :class="{
                                     'btn-success':termsaccepted && allValidInput(),

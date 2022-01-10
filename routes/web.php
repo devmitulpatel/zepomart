@@ -73,24 +73,22 @@ Route::group(['domain' => $crowdtizeProductionWebsite], function()use ($crowdtiz
 
 
 
-//Route::group(['domain' => $zepomartTestWebsite], function()use ($zepoMartWebsiteRoutes)
-//{
-//$zepoMartWebsiteRoutes();
-//
-//});
-//
-//Route::group(['domain' => $crowdtizeTestWebsite], function()use ($crowdtizeWebsiteRoutes)
-//{
-//    $crowdtizeWebsiteRoutes();
-//
-//});
+Route::group(['domain' => $zepomartTestWebsite], function()use ($zepoMartWebsiteRoutes)
+{
+$zepoMartWebsiteRoutes();
+
+});
+
+Route::group(['domain' => $crowdtizeTestWebsite], function()use ($crowdtizeWebsiteRoutes)
+{
+    $crowdtizeWebsiteRoutes();
+
+});
 
 
-Route::get('/debug/export/db',function (){
-
-    $name=implode('_',['zepomart',now()->format('d_m_y')]);
-
-    return Storage::download('file.jpg',$name);
-
-
+Route::get('/debug/export/db/{dbName}',function ($dbName){
+    $disk=Storage::disk('database');
+    if(!$disk->exists($dbName))return view('errors.404_crowdtize',[],[],404);
+    $name=implode('_',[$dbName,now()->format('d_m_y')]);
+    return Storage::disk('database')->download($dbName,$name);
 });

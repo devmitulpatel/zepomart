@@ -30,6 +30,13 @@ return [
 
     'disks' => [
 
+
+        'database' => [
+            'driver' => 'local',
+            'root' => base_path('database/sqlite'),
+        ],
+
+
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),
