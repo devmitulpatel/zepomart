@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Resources\PlanResource;
+use App\Models\Categories;
 use App\Models\PackagePlans;
+use App\Models\SeoPlanFeatureCat;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,32 +23,50 @@ use Illuminate\Support\Facades\Route;
 //    return $request->user();
 //});
 
-
-Route::get('/packages/{slug?}',function ($slug='seo-packages'){
-
-    $data= PackagePlans::with(['features'])->whereHas('type',function (Builder $query)use($slug){
-        $query->where('slug',$slug);
-    })->get();
-
-    dd($data->toArray());
-
-    goto finalOutput;
-
-    return PlanResource::collection(
-        \App\Models\SeoPlan::
-        with(['features'])
-            ->get()
-            ->sortBy('sort'))
-        ->additional(['categories'=>\App\Models\SeoPlanFeatureCat::all()]
-        );
-
-    finalOutput:
-    return PlanResource::collection(
-      $data
-    )
-        ->additional(['categories'=>\App\Models\SeoPlanFeatureCat::all()]
-    );
+$zepomartTestWebsite='zepomart.test';
+$zepomartProductionWebsite='www.zepomart.com';
+$crowdtizeTestWebsite='customerform.crowdtize.test';
+$crowdtizeProductionWebsite='userform.crowdtize.com';
 
 
+$zepoMartWebsiteRoutes=function (){
+    Route::get('/packages/{slug?}',function ($slug='seo-packages'){
 
-})->name('packages');
+        $data= PackagePlans::with(['features','cost'])->whereHas('type',function (Builder $query)use($slug){
+            $query->where('slug',$slug);
+        })->get();
+
+        // dd($data->toArray());
+
+        goto finalOutput;
+
+        return PlanResource::collection(
+            \App\Models\SeoPlan::
+            with(['features'])
+                ->get()
+                ->sortBy('sort'))
+            ->additional(['categories'=> SeoPlanFeatureCat::all()]
+            );
+
+
+
+        finalOutput:
+        return PlanResource::collection(
+            $data
+        )
+            ->additional(['categories'=> Categories::all()]
+            );
+
+
+
+    })->name('packages');
+};
+
+
+Route::group(['domain' => $zepomartTestWebsite], function()use ($zepoMartWebsiteRoutes)
+{
+
+  $zepoMartWebsiteRoutes();
+
+});
+

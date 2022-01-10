@@ -15,7 +15,7 @@
         <!-- /.container -->
     </section>
     <!-- /section -->
-    <section class="wrapper" v-cloak id="pricing-vue-component" api-url="{{route('packages',['slug'=>'ecommerce-marketing'])}}" inline-template>
+    <section class="wrapper" v-cloak id="pricing-vue-component"  api-url="{{route('packages',['slug'=>'ecommerce-marketing'])}}" active-category="6"  inline-template>
         <div class="container pb-14 pb-md-16">
             <div class="pricing-wrapper position-relative mt-n18 mt-md-n21 mb-12 mb-md-15">
                 <div class="shape bg-dot primary rellax w-16 h-18" data-rellax-speed="1"
@@ -31,10 +31,11 @@
                     </div>
                     <p class="mb-0 ps-3">Yearly</p>
                 </div>
-                <div class="row gy-6 mt-3 mt-md-5">
+                <div class="row gy-6 mt-3 mt-md-5 justify-content-center">
 
 
-                    <div v-for="plan in plans" class="col-md-6 col-lg-4">
+                    <div v-for="plan in plans" class="col-md-10 col-lg-10" style="z-index: 1" :class="{'col-md-6 col-lg-4':plan.length>2,
+                    'col-md-12 col-lg-12':plan.length<2 || plan.length>3}">
                         <div class="pricing card text-center select-none">
                             <div class="card-body w-100 select-none">
 
@@ -45,13 +46,12 @@
                                     <small class="card-text ">@{{ plan.description }}</small>
                                 </h4>
 
-                                <div class="prices text-dark">
-                                    <div class="price price-show"><span
-                                            class="price-currency">{{get_dynamic('Site Current Currency Symbol')}}</span><span
-                                            class="price-value">@{{ (timeToggle)?  plan.monthly_cost : plan.yearly_cost}}</span>
+                                <div class="prices text-dark ">
+                                    <div class="price price-show justify-content-center">
+                                        <span class="price-currency">{{get_dynamic('Site Current Currency Symbol')}}</span>
+                                        <span class="price-value">@{{ (timeToggle)?  getMonthlyPrice(plan) : getYearPrice(plan)}}</span>
                                         <span class="price-duration">@{{ (timeToggle)?  'month' : 'year'}}</span></div>
-                                </div>
-                                <!--/.prices -->
+                                    </div>
                                 <ul class="icon-list bullet-bg bullet-soft-primary mt-8 mb-9 text-start">
 
 
@@ -73,8 +73,8 @@
 
                                         <i  :class="{
                                         'uil sub-feature-icon':true,
-                                        'uil-check':feature.pivot.status,
-                                        'uil-times bullet-soft-red':!feature.pivot.status
+                                        'uil-check':feature.status,
+                                        'uil-times bullet-soft-red':!feature.status
                                         }"></i>
                                         @{{ feature.name }}
                                     </li>
@@ -88,6 +88,10 @@
 
                                 </ul>
                                 <a href="#" class="btn btn-primary rounded-pill">Choose Plan</a>
+                                </div>
+                                <!--/.prices -->
+
+
                             </div>
                             <!--/.card-body -->
                         </div>

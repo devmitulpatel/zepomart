@@ -15,7 +15,7 @@
         <!-- /.container -->
     </section>
     <!-- /section -->
-    <section class="wrapper" v-cloak id="pricing-vue-component" api-url="{{route('packages')}}" inline-template>
+    <section class="wrapper" v-cloak id="pricing-vue-component" api-url="{{route('packages')}}" active-category="1" inline-template>
         <div class="container pb-14 pb-md-16">
             <div class="pricing-wrapper position-relative mt-n18 mt-md-n21 mb-12 mb-md-15">
                 <div class="shape bg-dot primary rellax w-16 h-18" data-rellax-speed="1"
@@ -46,9 +46,9 @@
                                 </h4>
 
                                 <div class="prices text-dark">
-                                    <div class="price price-show"><span
-                                            class="price-currency">{{get_dynamic('Site Current Currency Symbol')}}</span><span
-                                            class="price-value">@{{ (timeToggle)?  plan.monthly_cost : plan.yearly_cost}}</span>
+                                    <div class="price price-show">
+                                        <span class="price-currency">{{get_dynamic('Site Current Currency Symbol')}}</span>
+                                        <span class="price-value">@{{ (timeToggle)?  getMonthlyPrice(plan) : getYearPrice(plan)}}</span>
                                         <span class="price-duration">@{{ (timeToggle)?  'month' : 'year'}}</span></div>
                                 </div>
                                 <!--/.prices -->

@@ -56,6 +56,20 @@ class PackagePlansSeeder extends Seeder
 
                         $plan->createFeature($feature['name'],$feature['type']);
                     }
+                    switch ($plan->id){
+                        case 1:
+                            $plan->createCost(15000);
+                            $plan->createCost(180000,2);
+                            break;
+                        case 2:
+                            $plan->createCost(20000);
+                            $plan->createCost(240000,2);
+                            break;
+                        case 3:
+                            $plan->createCost(25000);
+                            $plan->createCost(300000,2);
+                            break;
+                    }
 
                     break;
 
@@ -64,7 +78,13 @@ class PackagePlansSeeder extends Seeder
 
                         $plan->createFeature($feature['name'],$feature['type']);
                     }
+                    switch ($plan->id){
+                        case 4:
+                            $plan->createCost(9000);
+                            $plan->createCost(108000,2);
+                            break;
 
+                    }
                     break;
 
             }
@@ -285,10 +305,10 @@ class PackagePlansSeeder extends Seeder
 
     private function createDefaultFeatureMarketing(){
         $data=[];
-        $res=1;//Research
-        $opti=2;//Optimization
-        $ads=3;//Ads & PPC
-        $aproval=3;//Approval
+        $res=6;//Research
+        $opti=7;//Optimization
+        $ads=8;//Ads & PPC
+        $aproval=9;//Approval
         $data[]=[
             'name'=>'Amazon Initial Process Flow Research',
             'type'=>$res,
@@ -301,10 +321,7 @@ class PackagePlansSeeder extends Seeder
             'name'=>'Amazon Product Price Research',
             'type'=>$res,
         ];
-        $data[]=[
-            'name'=>'Amazon Product Price Research',
-            'type'=>$res,
-        ];
+
         $data[]=[
             'name'=>'Keyword research for existing products',
             'type'=>$res,
@@ -354,10 +371,7 @@ class PackagePlansSeeder extends Seeder
             'name'=>'Detailed Analysis and Future planning',
             'type'=>$opti,
         ];
-        $data[]=[
-            'name'=>'Detailed Analysis and Future planning',
-            'type'=>$opti,
-        ];
+
 
         $data[]=[
             'name'=>'Amazon/Flipkart Sponsored Products Ads',
@@ -404,7 +418,7 @@ class PackagePlansSeeder extends Seeder
         ];
 
         $data[]=[
-            'name'=>'•	APOB addition in FSSAI licence - we will take CA’s help from your end.',
+            'name'=>'APOB addition in FSSAI licence - we will take CA’s help from your end.',
             'type'=>$aproval,
         ];
         $data[]=[

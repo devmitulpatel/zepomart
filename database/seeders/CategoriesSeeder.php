@@ -50,5 +50,27 @@ class CategoriesSeeder extends Seeder
             'slug'=>Str::slug('Customer Support'),
         ];
 
+
+        $data[]=[
+            'name'=>'Research',
+            'slug'=>Str::slug('Research'),
+        ];
+
+        $data[]=[
+            'name'=>'Optimization',
+            'slug'=>Str::slug('Optimization'),
+        ];
+
+        $data[]=[
+            'name'=>'Ads & PPC',
+            'slug'=>Str::slug('Ads & PPC'),
+        ];
+
+        $data[]=[
+            'name'=>'Approvals',
+            'slug'=>Str::slug('Approvals'),
+        ];
+
+
     }
 }

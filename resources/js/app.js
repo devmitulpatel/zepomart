@@ -11,11 +11,14 @@ const pricing = {
             plans: [],
             categories:{},
             activeCategory:0,
+            debugData:{},
+            byCategories:[],
 
         }
     },
     mounted() {
         this.getAllPlan();
+
 
     },
     beforeCreate() {
@@ -56,6 +59,8 @@ const pricing = {
             axios.get(url).then((res)=>{
                 th.plans=res.data.data;
                 th.setCategories(res.data.categories);
+                console.log(document.getElementById('pricing-vue-component').getAttribute('active-category'),'<-here')
+                th.activateCategory(document.getElementById('pricing-vue-component').getAttribute('active-category'));
             }).catch()
         },
         featureFilterByCategory(features){
@@ -71,8 +76,30 @@ const pricing = {
             }
             //console.log(filteredFeature);
 
+
+            this.debugData=filteredFeature;
+
             return filteredFeature;
-        }
+        },
+        getMonthlyPrice(plan){
+            let found= plan.cost.find((ar)=>{
+                return ar.type==1;
+            })
+
+
+            return found.cost??0;
+
+        },
+
+        getYearPrice(plan){
+            let found= plan.cost.find((ar)=>{
+                return ar.type==2;
+            })
+
+
+            return found.cost??0;
+
+        },
 
 
 
@@ -109,6 +136,7 @@ const whatsapp = {
     },
 
     methods:{
+
         goToWhatsapp(){
             this.togglePopup();
             window.open(this.makeLink(),'_blank');

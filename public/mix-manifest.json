@@ -1,5 +1,4 @@
 {
-    "/crowdtize/js/app.js": "/crowdtize/js/app.js",
-    "/crowdtize/css/app.css": "/crowdtize/css/app.css",
-    "/crowdtize/css/datepicker.css": "/crowdtize/css/datepicker.css"
+    "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css"
 }

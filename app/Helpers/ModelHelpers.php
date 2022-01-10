@@ -4,6 +4,17 @@
 use App\Models\TableUpdate;
 use Illuminate\Database\Schema\Blueprint;
 
+
+if(!function_exists('seed_array')){
+    function seed_array($name,$value){
+        return [
+            'name'=>$name,
+            'slug'=>Str::slug($name),
+            'value'=>$value,
+        ];
+    }
+}
+
 if(!function_exists('seed_model')){
 
     function seed_model($model,$data):void{
