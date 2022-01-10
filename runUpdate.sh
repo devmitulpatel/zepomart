@@ -5,5 +5,7 @@ sudo cp /var/www/zepomart_website/.env.dev /var/www/zepomart_website/.env
 sudo chmod -R 755 /var/www/zepomart_website
 sudo chmod -R 777 /var/www/zepomart_website/storage
 sudo chmod -R 777 /var/www/zepomart_website/bootstrap/cache
+sudo chmod -R 777 /var/www/zepomart_website/database/sqlite/zepomart
+sudo chmod -R 777 /var/www/zepomart_website/database/sqlite/crowdtize
 
 
