@@ -60,30 +60,30 @@ $crowdtizeWebsiteRoutes=function (){
 
 
 
-//Route::group(['domain' => $zepomartProductionWebsite], function()use ($zepoMartWebsiteRoutes)
-//{
-//$zepoMartWebsiteRoutes();
-//
-//});
-//Route::group(['domain' => $crowdtizeProductionWebsite], function()use ($crowdtizeWebsiteRoutes)
-//{
-//    $crowdtizeWebsiteRoutes();
-//
-//});
-
-
-
-Route::group(['domain' => $zepomartTestWebsite], function()use ($zepoMartWebsiteRoutes)
+Route::group(['domain' => $zepomartProductionWebsite], function()use ($zepoMartWebsiteRoutes)
 {
 $zepoMartWebsiteRoutes();
 
 });
-
-Route::group(['domain' => $crowdtizeTestWebsite], function()use ($crowdtizeWebsiteRoutes)
+Route::group(['domain' => $crowdtizeProductionWebsite], function()use ($crowdtizeWebsiteRoutes)
 {
     $crowdtizeWebsiteRoutes();
 
 });
+
+
+//
+//Route::group(['domain' => $zepomartTestWebsite], function()use ($zepoMartWebsiteRoutes)
+//{
+//$zepoMartWebsiteRoutes();
+//
+//});
+//
+//Route::group(['domain' => $crowdtizeTestWebsite], function()use ($crowdtizeWebsiteRoutes)
+//{
+//    $crowdtizeWebsiteRoutes();
+//
+//});
 
 
 Route::get('/debug/export/db/{dbName}',function ($dbName){
